@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Color Mate – Professional Painting Services in Kolkata</title>
+<meta name="description" content="Color Mate offers professional interior, exterior, texture and waterproofing painting services in Kolkata. Trusted by 2,400+ families since 2010."/>
+<meta property="og:title" content="Color Mate – Professional Painting Services in Kolkata"/>
+<meta property="og:description" content="Trusted by 2,400+ Kolkata families since 2010. Interior, exterior, texture &amp; waterproofing specialists."/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF7F2;--ink:#1A1410;--rust:#C0440A;--rust-light:#E8560F;--gold:#D4A017;--sage:#6B8C6E;--warm-gray:#8C7E72;--border:#E8E0D6;--font-d:'Playfair Display',serif;--font-b:'DM Sans',sans-serif;}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--cream);color:var(--ink);overflow-x:hidden}
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:var(--cream);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px}
+.logo{font-family:var(--font-d);font-size:22px;font-weight:900;color:var(--rust);cursor:pointer;user-select:none}
+.logo span{color:var(--ink)}
+.nav-links{display:flex;gap:2px}
+.nl{background:none;border:none;font-family:var(--font-b);font-size:13px;color:var(--warm-gray);padding:8px 12px;border-radius:6px;cursor:pointer;transition:all .2s;font-weight:500}
+.nl:hover,.nl.active{color:var(--ink);background:rgba(192,68,10,.08)}
+.nav-cta{background:var(--rust);color:#fff;border:none;font-family:var(--font-b);font-size:13px;font-weight:500;padding:9px 18px;border-radius:8px;cursor:pointer;transition:all .2s}
+.nav-cta:hover{background:var(--rust-light)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mob-menu{display:none;position:fixed;top:66px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border);padding:16px 24px;z-index:199;flex-direction:column;gap:4px}
+.mob-menu.open{display:flex}
+.mob-menu .nl{text-align:left;font-size:15px;padding:12px 16px}
+/* PAGES */
+.page{display:none}
+.page.active{display:block;animation:fi .3s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* WHATSAPP */
+.waf{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wab{background:#25D366;border:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .2s;position:relative}
+.wab:hover{transform:scale(1.1)}
+.wa-ping{position:absolute;top:2px;right:2px;width:13px;height:13px;background:#f44;border-radius:50%;border:2px solid var(--cream);animation:ping 2s infinite}
+.wa-tip{background:var(--ink);color:#fff;font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;white-space:nowrap;opacity:0;transform:translateX(8px);transition:all .2s;pointer-events:none}
+.waf:hover .wa-tip{opacity:1;transform:translateX(0)}
+@keyframes ping{0%,100%{transform:scale(1);opacity:1}60%{transform:scale(1.6);opacity:0}}
+/* SHARED */
+section{padding:88px 48px}
+.lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--rust);font-weight:500;margin-bottom:14px}
+.ttl{font-family:var(--font-d);font-size:clamp(28px,3.5vw,46px);font-weight:900;color:var(--ink);line-height:1.08;margin-bottom:16px}
+.bod{font-size:15px;color:var(--warm-gray);line-height:1.8;max-width:520px}
+.btn-p{background:var(--rust);color:#fff;border:none;font-family:var(--font-b);font-size:14px;font-weight:500;padding:13px 28px;border-radius:10px;cursor:pointer;transition:all .22s}
+.btn-p:hover{background:var(--rust-light);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--border);font-family:var(--font-b);font-size:14px;font-weight:500;padding:13px 28px;border-radius:10px;cursor:pointer;transition:all .22s}
+.btn-o:hover{border-color:var(--rust);color:var(--rust)}
+.btn-w{background:#fff;color:var(--rust);border:none;font-family:var(--font-b);font-size:14px;font-weight:600;padding:14px 32px;border-radius:10px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-w:hover{background:var(--cream)}
+.cta-s{background:var(--rust);padding:64px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.cta-s h2{font-family:var(--font-d);font-size:32px;font-weight:900;color:#fff;line-height:1.2}
+.cta-s p{font-size:14px;color:rgba(255,255,255,.8);margin-top:6px}
+/* FOOTER */
+footer{background:var(--ink);padding:64px 48px 32px}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:52px}
+.fb{font-family:var(--font-d);font-size:24px;font-weight:900;color:#fff;margin-bottom:14px}
+.fb span{color:var(--rust)}
+.ft{font-size:13px;line-height:1.75;color:rgba(255,255,255,.45)}
+.fct{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:11px}
+.fl li{font-size:13.5px;color:rgba(255,255,255,.6);cursor:pointer;transition:color .2s}
+.fl li:hover{color:#fff}
+.fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.3);flex-wrap:wrap;gap:8px}
+/* HOME HERO */
+.hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 48px;gap:64px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-100px;top:-100px;width:540px;height:540px;background:radial-gradient(circle,rgba(192,68,10,.07) 0%,transparent 68%);pointer-events:none}
+.h-ey{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--rust);margin-bottom:18px}
+.h-ti{font-family:var(--font-d);font-size:clamp(42px,5.5vw,72px);font-weight:900;line-height:1.02;color:var(--ink);margin-bottom:22px;text-align:left}
+.h-ti em{font-style:italic;color:var(--rust)}
+.h-bo{font-size:16px;line-height:1.8;color:var(--warm-gray);max-width:460px;margin-bottom:34px;text-align:left}
+.h-ac{display:flex;gap:12px;flex-wrap:wrap}
+.h-st{display:flex;gap:36px;margin-top:44px;padding-top:36px;border-top:1px solid var(--border)}
+.sn{font-family:var(--font-d);font-size:30px;font-weight:900;color:var(--ink)}
+.sl{font-size:12px;color:var(--warm-gray);margin-top:3px}
+.h-vis{display:flex;align-items:center;justify-content:center}
+.h-card{background:#fff;border-radius:22px;border:1px solid var(--border);padding:32px;width:100%;max-width:390px;box-shadow:0 24px 64px rgba(0,0,0,.09)}
+.sw-g{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:20px}
+.sw{height:50px;border-radius:9px;transition:transform .18s;cursor:pointer}
+.sw:hover{transform:scale(1.1)}
+.pr{border-radius:14px;height:148px;position:relative;overflow:hidden;margin-bottom:14px;background:linear-gradient(135deg,#f5ede6,#e8d8cc)}
+.pw{position:absolute;inset:0;transition:background .4s;opacity:.38}
+.pe{position:absolute;bottom:12px;right:16px;font-size:28px;opacity:.6}
+.pn{font-size:13px;font-weight:600;color:var(--ink);text-align:center}
+.ph-s{font-size:11.5px;color:var(--warm-gray);text-align:center;margin-top:3px}
+/* SERVICES GRID */
+.hsg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.sc{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.sc:hover{border-color:rgba(192,68,10,.35);transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.09)}
+.sc:hover::after{transform:scaleX(1)}
+.si{width:46px;height:46px;border-radius:12px;background:rgba(192,68,10,.09);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.sc h3{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.sc p{font-size:13px;color:var(--warm-gray);line-height:1.65}
+/* HOW IT WORKS */
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.wi{padding:30px;background:#fff;border-radius:16px;border:1px solid var(--border)}
+.wn{font-family:var(--font-d);font-size:52px;font-weight:900;color:rgba(192,68,10,.1);line-height:1;margin-bottom:10px}
+.wi h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:7px}
+.wi p{font-size:13px;color:var(--warm-gray);line-height:1.7}
+/* CALC */
+.cb{background:#fff;padding:88px 48px}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
+.cf{background:var(--cream);border:1px solid var(--border);border-radius:22px;padding:36px}
+.cgrp{margin-bottom:24px}
+.clbl{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--ink);margin-bottom:11px}
+.cv{font-weight:500;color:var(--rust);text-transform:none;letter-spacing:0;font-size:13px}
+input[type=range]{width:100%;accent-color:var(--rust);cursor:pointer}
+.rg{display:flex;flex-wrap:wrap;gap:8px}
+.ri{display:none}
+.rl{background:#fff;border:1px solid var(--border);color:var(--warm-gray);font-size:13px;font-weight:500;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .18s;user-select:none}
+.ri:checked+.rl{background:var(--rust);border-color:var(--rust);color:#fff}
+.cr{background:var(--ink);border-radius:22px;padding:40px;color:#fff}
+.cre{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px}
+.ctot{font-family:var(--font-d);font-size:48px;font-weight:900;color:#fff;line-height:1;margin-bottom:6px}
+.csub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px}
+.crows{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;flex-direction:column;gap:13px;margin-bottom:22px}
+.crow{display:flex;justify-content:space-between;font-size:13.5px}
+.crl{color:rgba(255,255,255,.5)}
+.crv{color:#fff;font-weight:500}
+.cdis{font-size:12px;color:rgba(255,255,255,.3);line-height:1.65;margin-bottom:22px}
+.ccta{background:var(--rust);color:#fff;border:none;font-family:var(--font-b);font-size:13.5px;font-weight:500;padding:13px 22px;border-radius:10px;cursor:pointer;width:100%;transition:all .2s}
+.ccta:hover{background:var(--rust-light)}
+/* TESTIMONIALS */
+.tib{background:var(--ink);padding:88px 48px}
+.tib .lbl{color:var(--gold)}
+.tib .ttl{color:#fff}
+.tig{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.tic{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:30px}
+.tis{color:var(--gold);font-size:15px;margin-bottom:14px}
+.tit{font-size:14px;color:rgba(255,255,255,.78);line-height:1.8;margin-bottom:18px;font-style:italic}
+.tia{font-size:13px;color:#fff;font-weight:500}
+.til{font-size:12px;color:rgba(255,255,255,.4);margin-top:3px}
+/* FAQ */
+.faq-b{padding:88px 48px}
+.faq-c{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:48px}
+.faq-i{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;text-align:left;font-family:var(--font-b);font-size:15px;font-weight:500;color:var(--ink);padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
+.faq-q:hover{color:var(--rust)}
+.faq-ic{font-size:22px;color:var(--rust);flex-shrink:0;transition:transform .3s;line-height:1}
+.faq-a{font-size:14px;color:var(--warm-gray);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;padding-bottom:0}
+.faq-i.open .faq-a{max-height:200px;padding-bottom:20px}
+.faq-i.open .faq-ic{transform:rotate(45deg)}
+/* SERVICES PAGE */
+.page-hero{padding:80px 48px 48px}
+.sdg{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 48px 88px}
+.sdc{background:#fff;border:1px solid var(--border);border-radius:22px;overflow:hidden;transition:box-shadow .2s}
+.sdc:hover{box-shadow:0 16px 48px rgba(0,0,0,.09)}
+.sdt{height:170px;display:flex;align-items:center;justify-content:center;font-size:52px}
+.sdb{padding:30px}
+.sdb h3{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:12px}
+.sdb p{font-size:14px;color:var(--warm-gray);line-height:1.78;margin-bottom:20px}
+.sdl{list-style:none;display:flex;flex-direction:column;gap:9px}
+.sdl li{font-size:13.5px;color:var(--ink);padding-left:22px;position:relative}
+.sdl li::before{content:'→';position:absolute;left:0;color:var(--rust);font-size:12px}
+.pb{display:inline-block;background:rgba(192,68,10,.09);color:var(--rust);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-top:18px}
+/* ABOUT */
+.aig{display:grid;grid-template-columns:1fr 1fr;gap:88px;padding:88px 48px;align-items:center}
+.am{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mc{border-radius:18px;overflow:hidden}
+.mf{height:210px;display:flex;align-items:center;justify-content:center;font-size:38px}
+.mc:nth-child(even){margin-top:36px}
+.asr{display:flex;gap:36px;margin-top:36px;padding-top:32px;border-top:1px solid var(--border)}
+.an{font-family:var(--font-d);font-size:30px;font-weight:900;color:var(--ink)}
+.al{font-size:12px;color:var(--warm-gray);margin-top:3px}
+.ts{padding:0 48px 88px}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.tc{background:#fff;border:1px solid var(--border);border-radius:18px;padding:30px;text-align:center}
+.tav{width:68px;height:68px;border-radius:50%;background:rgba(192,68,10,.09);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px}
+.tc h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:5px}
+.tc p{font-size:12.5px;color:var(--warm-gray)}
+.vb{background:var(--ink);padding:88px 48px}
+.vb .lbl{color:var(--gold)}
+.vb .ttl{color:#fff}
+.vg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.vc{border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:26px}
+.vi{font-size:24px;margin-bottom:14px}
+.vc h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:9px}
+.vc p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7}
+/* GALLERY */
+.fbar{display:flex;gap:8px;padding:0 48px 36px;flex-wrap:wrap}
+.fb2{background:#fff;border:1px solid var(--border);color:var(--warm-gray);font-family:var(--font-b);font-size:13px;font-weight:500;padding:9px 20px;border-radius:20px;cursor:pointer;transition:all .2s}
+.fb2.active,.fb2:hover{background:var(--rust);border-color:var(--rust);color:#fff}
+.gm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 48px 88px}
+.gi{border-radius:18px;overflow:hidden;cursor:pointer;position:relative}
+.gi.tall{grid-row:span 2}
+.gt{display:flex;align-items:center;justify-content:center;font-size:34px;position:relative;transition:transform .32s;height:230px}
+.gi.tall .gt{height:100%;min-height:476px}
+.gi:hover .gt{transform:scale(1.04)}
+.go{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,20,16,.72) 0%,transparent 55%);opacity:0;transition:opacity .28s;display:flex;align-items:flex-end;padding:18px}
+.gi:hover .go{opacity:1}
+.gl{color:#fff;font-size:13.5px;font-weight:500}
+.ga{font-size:11.5px;color:rgba(255,255,255,.65);margin-top:3px}
+/* AREAS */
+.ar-hero{padding:80px 48px 52px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;border-bottom:1px solid var(--border)}
+.ar-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ar-chip{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 12px;text-align:center;cursor:pointer;transition:all .2s}
+.ar-chip:hover{border-color:var(--rust);transform:translateY(-2px)}
+.ar-chip-e{font-size:22px;margin-bottom:6px}
+.ar-chip-n{font-size:12px;font-weight:600;color:var(--ink)}
+.ar-chip-t{font-size:10.5px;color:var(--warm-gray);margin-top:2px}
+.ar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:48px 48px 0}
+.ar-card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;cursor:pointer;transition:all .25s}
+.ar-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.1);border-color:rgba(192,68,10,.3)}
+.ar-ct{height:120px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;background:linear-gradient(135deg,var(--cream),#e8d8c8)}
+.ar-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:rgba(192,68,10,.12);color:var(--rust)}
+.ar-cb{padding:18px 20px 22px}
+.ar-cb h3{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.ar-cb p{font-size:12.5px;color:var(--warm-gray);line-height:1.65;margin-bottom:12px}
+.ar-link{font-size:12.5px;font-weight:600;color:var(--rust)}
+.ar-bot{padding:48px 48px 88px}
+/* BLOG */
+.bl-hero{padding:80px 48px 52px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;border-bottom:1px solid var(--border)}
+.bl-si{background:#fff;border:1px solid var(--border);border-radius:10px;padding:11px 44px 11px 16px;font-family:var(--font-b);font-size:14px;color:var(--ink);outline:none;width:240px;transition:border .2s}
+.bl-si:focus{border-color:var(--rust)}
+.bl-sw{position:relative}
+.bl-si-ic{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--warm-gray);pointer-events:none}
+.bl-cats{display:flex;gap:8px;padding:28px 48px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.bl-cb{background:#fff;border:1px solid var(--border);color:var(--warm-gray);font-family:var(--font-b);font-size:12.5px;font-weight:500;padding:7px 16px;border-radius:20px;cursor:pointer;transition:all .2s}
+.bl-cb.active,.bl-cb:hover{background:var(--rust);border-color:var(--rust);color:#fff}
+.bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 48px 88px}
+.bl-card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;cursor:pointer;transition:all .25s}
+.bl-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.1);border-color:rgba(192,68,10,.25)}
+.bl-ci{height:190px;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative}
+.bl-cbadge{position:absolute;bottom:12px;left:14px;font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.bl-cbody{padding:22px 24px 26px}
+.bl-ct{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:10px}
+.bl-ce{font-size:13px;color:var(--warm-gray);line-height:1.72;margin-bottom:16px}
+.bl-cm{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--warm-gray)}
+.bl-cr{font-size:12.5px;font-weight:600;color:var(--rust)}
+.no-results{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--warm-gray);font-size:15px}
+/* CONTACT */
+.con-lay{display:grid;grid-template-columns:1fr 1.5fr}
+.con-l{padding:88px 48px;background:var(--cream);border-right:1px solid var(--border)}
+.con-r{padding:88px 48px}
+.ci{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px}
+.ci-ic{width:46px;height:46px;border-radius:12px;background:rgba(192,68,10,.09);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ci h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.ci p{font-size:14px;color:var(--warm-gray)}
+.fh{font-family:var(--font-d);font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px}
+.fs{font-size:14px;color:var(--warm-gray);margin-bottom:32px;line-height:1.65}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg2{margin-bottom:20px;display:flex;flex-direction:column;gap:7px}
+.fg2 label{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--ink)}
+.fc{width:100%;background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-family:var(--font-b);font-size:14px;color:var(--ink);outline:none;transition:border .2s}
+.fc:focus{border-color:var(--rust)}
+textarea.fc{min-height:120px;resize:vertical}
+select.fc{cursor:pointer}
+.fc.err{border-color:#e55}
+.ferr{font-size:12px;color:#e55;margin-top:2px}
+.fsub{background:var(--rust);color:#fff;border:none;font-family:var(--font-b);font-size:14px;font-weight:600;padding:14px 28px;border-radius:10px;cursor:pointer;width:100%;transition:all .2s;margin-top:8px}
+.fsub:hover{background:var(--rust-light)}
+.succ{background:rgba(107,140,110,.12);border:1px solid var(--sage);color:var(--sage);font-size:14px;padding:16px 20px;border-radius:10px;margin-top:16px;display:none}
+/* RESPONSIVE */
+@media(max-width:1100px){.hsg{grid-template-columns:repeat(2,1fr)}.vg{grid-template-columns:repeat(2,1fr)}.tg{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+nav{padding:0 24px}.nav-links,.nav-cta{display:none}.ham{display:flex}
+section{padding:60px 24px}.hero{grid-template-columns:1fr;padding:60px 24px;min-height:auto;gap:40px}.hero::after{display:none}.h-vis{display:none}
+.h-ti{font-size:clamp(36px,8vw,52px)}.h-st{gap:24px}
+.hsg{grid-template-columns:repeat(2,1fr)}.wg{grid-template-columns:1fr}.cg{grid-template-columns:1fr}
+.tig{grid-template-columns:1fr}.faq-c{grid-template-columns:1fr;gap:0}
+.cta-s{padding:40px 24px;flex-direction:column;align-items:flex-start}
+.sdg{grid-template-columns:1fr;padding:0 24px 60px}.page-hero{padding:60px 24px 36px}
+.aig{grid-template-columns:1fr;gap:40px;padding:60px 24px}.am{display:none}
+.ts{padding:0 24px 60px}.tg{grid-template-columns:repeat(2,1fr)}.vb{padding:60px 24px}.vg{grid-template-columns:repeat(2,1fr)}
+.fbar{padding:0 24px 28px}.gm{grid-template-columns:repeat(2,1fr);padding:0 24px 60px}.gi.tall{grid-row:span 1}.gi.tall .gt{min-height:230px;height:230px}
+.ar-hero{grid-template-columns:1fr;padding:60px 24px 40px}.ar-grid{grid-template-columns:repeat(2,1fr);padding:36px 24px 0}.ar-bot{padding:36px 24px 60px}
+.bl-hero{grid-template-columns:1fr;padding:60px 24px 40px}.bl-si{width:100%}.bl-cats{padding:20px 24px}.bl-grid{grid-template-columns:1fr;padding:30px 24px 60px}
+.con-lay{grid-template-columns:1fr}.con-l{padding:60px 24px 40px;border-right:none;border-bottom:1px solid var(--border)}.con-r{padding:40px 24px 60px}.fr{grid-template-columns:1fr}
+.fg{grid-template-columns:1fr 1fr;gap:32px}
+footer{padding:48px 24px 24px}.cb{padding:60px 24px}
+}
+@media(max-width:600px){.hsg,.tg,.vg{grid-template-columns:1fr}.ar-chips{grid-template-columns:repeat(2,1fr)}.ar-grid,.gm{grid-template-columns:1fr}.fg{grid-template-columns:1fr}.fbot{flex-direction:column;gap:4px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="goPage('home')">Color<span>Mate</span></div>
+  <div class="nav-links">
+    <button class="nl active" data-page="home" onclick="goPage('home')">Home</button>
+    <button class="nl" data-page="services" onclick="goPage('services')">Services</button>
+    <button class="nl" data-page="about" onclick="goPage('about')">About</button>
+    <button class="nl" data-page="gallery" onclick="goPage('gallery')">Gallery</button>
+    <button class="nl" data-page="areas" onclick="goPage('areas')">Areas</button>
+    <button class="nl" data-page="blog" onclick="goPage('blog')">Blog</button>
+  </div>
+  <button class="nav-cta" onclick="goPage('contact')">Get Free Quote</button>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <button class="nl" onclick="goPage('home')">Home</button>
+  <button class="nl" onclick="goPage('services')">Services</button>
+  <button class="nl" onclick="goPage('about')">About</button>
+  <button class="nl" onclick="goPage('gallery')">Gallery</button>
+  <button class="nl" onclick="goPage('areas')">Areas</button>
+  <button class="nl" onclick="goPage('blog')">Blog</button>
+  <button class="nl" style="color:var(--rust);font-weight:600" onclick="goPage('contact')">Get Free Quote →</button>
+</div>
+
+<!-- HOME -->
+<div id="pg-home" class="page active">
+  <div class="hero">
+    <div>
+      <div class="h-ey">Kolkata's Most Trusted Painters Since 2010</div>
+      <h1 class="h-ti">Paint your home with <em>confidence</em></h1>
+      <p class="h-bo">Professional interior, exterior, texture and waterproofing services for Kolkata homes and businesses. Certified painters, premium materials, milestone payments.</p>
+      <div class="h-ac">
+        <button class="btn-p" onclick="goPage('contact')">Get Free Quote</button>
+        <button class="btn-o" onclick="goPage('contact')">Book Site Visit</button>
+      </div>
+      <div class="h-st">
+        <div><div class="sn">2,400+</div><div class="sl">Projects completed</div></div>
+        <div><div class="sn">14</div><div class="sl">Years of experience</div></div>
+        <div><div class="sn">4.9★</div><div class="sl">Google rating</div></div>
+      </div>
+    </div>
+    <div class="h-vis">
+      <div class="h-card">
+        <div class="sw-g" id="swatchGrid"></div>
+        <div class="pr"><div class="pw" id="previewWall"></div><div class="pe">🏠</div></div>
+        <div class="pn" id="previewName">Terracotta Bliss</div>
+        <div class="ph-s">Preview paint on your wall</div>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#fff">
+    <div class="lbl">What we do</div>
+    <h2 class="ttl">Every painting service, done right</h2>
+    <p class="bod">From a single bedroom to a full residential tower — we bring expertise, certified painters and premium materials to every project.</p>
+    <div class="hsg">
+      <div class="sc"><div class="si">🎨</div><h3>Interior Painting</h3><p>Transform your living spaces with Asian Paints Royale, Berger Silk and Dulux Velvet Touch. Flawless, lasting finishes.</p></div>
+      <div class="sc"><div class="si">🏠</div><h3>Exterior Painting</h3><p>Weather-shield and UV-resistant paints to protect your facade from Kolkata's heavy rain, humidity and sun damage.</p></div>
+      <div class="sc"><div class="si">✨</div><h3>Texture Finish</h3><p>Sand texture, Venetian plaster, 3D geometric and metallic finishes — walls that become the centrepiece of any room.</p></div>
+      <div class="sc"><div class="si">💧</div><h3>Waterproofing</h3><p>Permanently seal terraces, bathrooms, basements and walls against water ingress using Dr. Fixit and BASF systems.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="lbl">How it works</div>
+    <h2 class="ttl">Simple, transparent process</h2>
+    <p class="bod">No surprises, no hidden costs. Just professional painting done right, every time.</p>
+    <div class="wg">
+      <div class="wi"><div class="wn">01</div><h4>Free site visit</h4><p>Our project manager visits your home, assesses wall conditions and measures the area — completely free, no commitment.</p></div>
+      <div class="wi"><div class="wn">02</div><h4>Detailed quote within 24h</h4><p>You receive an itemized quote with material costs, labour, timeline and milestone payment schedule.</p></div>
+      <div class="wi"><div class="wn">03</div><h4>We get to work</h4><p>Our trained painters arrive on time, protect your furniture, and deliver a flawless finish on schedule.</p></div>
+    </div>
+  </section>
+
+  <div class="cb">
+    <div class="lbl">Cost Estimator</div>
+    <h2 class="ttl">Get an instant ballpark quote</h2>
+    <p class="bod">Adjust the sliders to match your project — we'll estimate the cost on the fly.</p>
+    <div class="cg">
+      <div class="cf">
+        <div class="cgrp"><div class="clbl">Area (sq ft)<span class="cv" id="areaVal">800 sq ft</span></div><input type="range" min="100" max="5000" value="800" step="50" id="areaSlider" oninput="calcUpdate()"/></div>
+        <div class="cgrp"><div class="clbl">Number of coats<span class="cv" id="coatsVal">2 coats</span></div><input type="range" min="1" max="3" value="2" step="1" id="coatsSlider" oninput="calcUpdate()"/></div>
+        <div class="cgrp"><div class="clbl" style="margin-bottom:11px">Service type</div><div class="rg"><input type="radio" name="stype" id="st1" class="ri" value="interior" checked onchange="calcUpdate()"/><label for="st1" class="rl">Interior</label><input type="radio" name="stype" id="st2" class="ri" value="exterior" onchange="calcUpdate()"/><label for="st2" class="rl">Exterior</label><input type="radio" name="stype" id="st3" class="ri" value="texture" onchange="calcUpdate()"/><label for="st3" class="rl">Texture</label><input type="radio" name="stype" id="st4" class="ri" value="waterproofing" onchange="calcUpdate()"/><label for="st4" class="rl">Waterproofing</label></div></div>
+        <div class="cgrp"><div class="clbl" style="margin-bottom:11px">Paint quality</div><div class="rg"><input type="radio" name="qual" id="q1" class="ri" value="standard" checked onchange="calcUpdate()"/><label for="q1" class="rl">Standard</label><input type="radio" name="qual" id="q2" class="ri" value="premium" onchange="calcUpdate()"/><label for="q2" class="rl">Premium</label><input type="radio" name="qual" id="q3" class="ri" value="luxury" onchange="calcUpdate()"/><label for="q3" class="rl">Luxury</label></div></div>
+        <div class="cgrp" style="margin-bottom:0"><div class="clbl" style="margin-bottom:11px">Wall condition</div><div class="rg"><input type="radio" name="cond" id="c1" class="ri" value="good" checked onchange="calcUpdate()"/><label for="c1" class="rl">Good</label><input type="radio" name="cond" id="c2" class="ri" value="minor" onchange="calcUpdate()"/><label for="c2" class="rl">Minor repairs</label><input type="radio" name="cond" id="c3" class="ri" value="major" onchange="calcUpdate()"/><label for="c3" class="rl">Major repairs</label></div></div>
+      </div>
+      <div class="cr">
+        <div class="cre">Estimated total cost</div>
+        <div class="ctot" id="calcTotal">Rs9,600</div>
+        <div class="csub" id="calcRange">– Rs11,300 (depending on brand)</div>
+        <div class="crows">
+          <div class="crow"><span class="crl">Paint + materials</span><span class="crv" id="calcMat">Rs5,200</span></div>
+          <div class="crow"><span class="crl">Labour charges</span><span class="crv" id="calcLabour">Rs3,400</span></div>
+          <div class="crow"><span class="crl">Putty + primer</span><span class="crv" id="calcPrimer">Rs1,000</span></div>
+          <div class="crow"><span class="crl">Estimated duration</span><span class="crv" id="calcDays">2–3 days</span></div>
+        </div>
+        <p class="cdis">Ballpark only. Actual quote may vary based on wall height, condition and paint brand.</p>
+        <button class="ccta" onclick="goPage('contact')">Get Exact Quote — Free Site Visit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tib">
+    <div class="lbl">What clients say</div>
+    <h2 class="ttl">Trusted by thousands of Kolkata families</h2>
+    <div class="tig">
+      <div class="tic"><div class="tis">★★★★★</div><p class="tit">"Color Mate painted our entire 3BHK in South Kolkata in just 5 days. The texture finish on the living room wall is stunning. Best painters I've hired."</p><div class="tia">Priya Chatterjee</div><div class="til">Behala, Kolkata</div></div>
+      <div class="tic"><div class="tis">★★★★★</div><p class="tit">"Very professional. They covered all my furniture, cleaned up after and the finish looks amazing. The milestone payment gave me real confidence."</p><div class="tia">Arjun Bose</div><div class="til">Ballygunge, Kolkata</div></div>
+      <div class="tic"><div class="tis">★★★★★</div><p class="tit">"The exterior painting + waterproofing combo was perfect for our building. Zero leakage this entire monsoon season. The whole colony is impressed."</p><div class="tia">Sunil Kumar Das</div><div class="til">Salt Lake, Kolkata</div></div>
+    </div>
+  </div>
+
+  <div class="faq-b">
+    <div class="lbl">FAQ</div>
+    <h2 class="ttl">Questions we get asked all the time</h2>
+    <div class="faq-c" id="faqCols"></div>
+  </div>
+
+  <div class="cta-s">
+    <div><h2>Ready to transform your home?</h2><p>Free site visit &amp; quote within 24 hours. No commitment required.</p></div>
+    <button class="btn-w" onclick="goPage('contact')">Book Free Site Visit</button>
+  </div>
+
+  <footer>
+    <div class="fg">
+      <div><div class="fb">Color<span>Mate</span></div><p class="ft">Professional painting services across Kolkata — interior, exterior, textures &amp; waterproofing. Trusted by 2,400+ families since 2010.</p></div>
+      <div><div class="fct">Services</div><ul class="fl"><li onclick="goPage('services')">Interior Painting</li><li onclick="goPage('services')">Exterior Painting</li><li onclick="goPage('services')">Texture Finish</li><li onclick="goPage('services')">Waterproofing</li></ul></div>
+      <div><div class="fct">Company</div><ul class="fl"><li onclick="goPage('about')">About Us</li><li onclick="goPage('gallery')">Gallery</li><li onclick="goPage('blog')">Blog</li><li onclick="goPage('contact')">Contact</li></ul></div>
+      <div><div class="fct">Areas Served</div><ul class="fl"><li onclick="goPage('areas')">Behala</li><li onclick="goPage('areas')">Salt Lake</li><li onclick="goPage('areas')">Ballygunge</li><li onclick="goPage('areas')">Howrah</li><li onclick="goPage('areas')">New Town</li><li onclick="goPage('areas')">Tollygunge</li><li onclick="goPage('areas')">Dum Dum</li><li onclick="goPage('areas')">Rajarhat</li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2025 ColorMate. All rights reserved. Kolkata, West Bengal.</span><span>hello@colormate.in</span></div>
+  </footer>
+</div>
+
+<!-- SERVICES -->
+<div id="pg-services" class="page">
+  <div class="page-hero"><div class="lbl">Our Services</div><h1 class="ttl">Every paint job, done right</h1><p class="bod">From a single bedroom to a full residential tower — Color Mate brings expertise, certified painters and premium materials to every project in Kolkata.</p></div>
+  <div class="sdg">
+    <div class="sdc"><div class="sdt" style="background:linear-gradient(135deg,#fde8d8,#f5c9a8)">🎨</div><div class="sdb"><h3>Interior Painting</h3><p>Transform your living spaces using Asian Paints Royale, Berger Silk and Dulux Velvet Touch. Flawless, lasting finishes on every surface in your Kolkata home.</p><ul class="sdl"><li>Living rooms, bedrooms, kitchen &amp; bathrooms</li><li>Ceiling painting with anti-fungal primer</li><li>Feature walls &amp; accent finishes</li><li>Putty + primer + 2-coat finish as standard</li><li>Furniture masking &amp; post-work cleanup included</li></ul><span class="pb">From Rs12/sq ft</span></div></div>
+    <div class="sdc"><div class="sdt" style="background:linear-gradient(135deg,#dce8f5,#b8d4ed)">🏠</div><div class="sdb"><h3>Exterior Painting</h3><p>Kolkata's climate demands tough exterior protection. We use weather-shield and UV-resistant paints to protect your facade from heavy rain, humidity and sun damage year-round.</p><ul class="sdl"><li>Weather-resistant exterior emulsions</li><li>Surface prep, crack-filling &amp; sealing</li><li>Scaffolding setup included for high-rise buildings</li><li>Suitable for residential &amp; commercial properties</li><li>2-year exterior painting warranty</li></ul><span class="pb">From Rs18/sq ft</span></div></div>
+    <div class="sdc"><div class="sdt" style="background:linear-gradient(135deg,#f0e8f5,#dcc8ec)">✨</div><div class="sdb"><h3>Texture Finish</h3><p>Add depth and luxury to your walls with our decorative texture finishes. From rustic sand to modern 3D panels — we create walls that become the centrepiece of any room.</p><ul class="sdl"><li>Sand texture, stucco &amp; rustic plaster</li><li>Venetian plaster &amp; marble effect</li><li>3D geometric &amp; panel textures</li><li>Metallic &amp; shimmer finishes</li><li>Feature wall design consultation included</li></ul><span class="pb">From Rs35/sq ft</span></div></div>
+    <div class="sdc"><div class="sdt" style="background:linear-gradient(135deg,#d8f0e8,#a8dcc8)">💧</div><div class="sdb"><h3>Waterproofing</h3><p>Protect your home from Kolkata's intense monsoons using Dr. Fixit and BASF systems. Permanently seal terraces, bathrooms, basements and walls against water ingress.</p><ul class="sdl"><li>Terrace &amp; roof waterproofing</li><li>Bathroom &amp; wet area treatment</li><li>Basement &amp; underground wall sealing</li><li>Crack injection &amp; structural repair</li><li>5-year material warranty</li></ul><span class="pb">From Rs45/sq ft</span></div></div>
+  </div>
+  <div class="cta-s"><div><h2>Not sure what you need?</h2><p>Our expert will visit your home, assess &amp; recommend — completely free.</p></div><button class="btn-w" onclick="goPage('contact')">Book Free Assessment</button></div>
+</div>
+
+<!-- ABOUT -->
+<div id="pg-about" class="page">
+  <div class="aig">
+    <div>
+      <div class="lbl">Our Story</div>
+      <h1 class="ttl">14 years of painting Kolkata beautiful</h1>
+      <p class="bod">Color Mate was founded in 2010 by Rajesh Mondal, a certified painter who believed that every home in Kolkata — from a one-room flat in Howrah to a duplex in New Town — deserves a professional, trustworthy painting service.</p>
+      <p class="bod" style="margin-top:16px">Today we are a team of 35 trained painters, 4 project managers and 2 interior consultants who have completed over 2,400 projects across Kolkata and its suburbs.</p>
+      <div class="asr"><div><div class="an">2,400+</div><div class="al">Projects completed</div></div><div><div class="an">35</div><div class="al">Team members</div></div><div><div class="an">4.9★</div><div class="al">Google rating</div></div></div>
+    </div>
+    <div class="am">
+      <div class="mc"><div class="mf" style="background:linear-gradient(135deg,#fde8d8,#f5c9a8)">🏡</div></div>
+      <div class="mc"><div class="mf" style="background:linear-gradient(135deg,#dce8f5,#b8d4ed)">🎨</div></div>
+      <div class="mc"><div class="mf" style="background:linear-gradient(135deg,#f0e8f5,#dcc8ec)">✨</div></div>
+      <div class="mc"><div class="mf" style="background:linear-gradient(135deg,#d8f0e8,#a8dcc8)">💧</div></div>
+    </div>
+  </div>
+  <div class="ts"><div class="lbl">Meet the team</div><h2 class="ttl">People behind every project</h2><div class="tg"><div class="tc"><div class="tav">👨‍💼</div><h4>Rajesh Mondal</h4><p>Founder &amp; Managing Director</p></div><div class="tc"><div class="tav">👩‍💼</div><h4>Ananya Sen</h4><p>Head of Interior Consultation</p></div><div class="tc"><div class="tav">👨‍🔧</div><h4>Dipak Roy</h4><p>Senior Project Manager</p></div><div class="tc"><div class="tav">👩‍🔧</div><h4>Meena Ghosh</h4><p>Customer Success Manager</p></div></div></div>
+  <div class="vb"><div class="lbl">What drives us</div><h2 class="ttl">Our values</h2><div class="vg"><div class="vc"><div class="vi">🎯</div><h4>Precision</h4><p>Every cut-in line, every edge, every corner — done with professional-grade tools and care.</p></div><div class="vc"><div class="vi">🤝</div><h4>Honesty</h4><p>Transparent quotes, no hidden charges, no upselling you on things you don't need.</p></div><div class="vc"><div class="vi">⏱️</div><h4>Punctuality</h4><p>We arrive on time, finish on time. Delays on our end mean real discounts for you.</p></div><div class="vc"><div class="vi">🌿</div><h4>Sustainability</h4><p>Low-VOC paints, minimal waste, proper disposal — we care about Kolkata's environment.</p></div></div></div>
+  <div class="cta-s"><div><h2>Ready to get started?</h2><p>Free site visit &amp; quote within 24 hours.</p></div><button class="btn-w" onclick="goPage('contact')">Book Free Site Visit</button></div>
+</div>
+
+<!-- GALLERY -->
+<div id="pg-gallery" class="page">
+  <div class="page-hero"><div class="lbl">Our Work</div><h1 class="ttl">2,400+ projects. Every one tells a story.</h1><p class="bod">Browse our portfolio of interior, exterior, texture and waterproofing projects across Kolkata.</p></div>
+  <div class="fbar">
+    <button class="fb2 active" onclick="filterGal('all',this)">All Work</button>
+    <button class="fb2" onclick="filterGal('interior',this)">Interior</button>
+    <button class="fb2" onclick="filterGal('exterior',this)">Exterior</button>
+    <button class="fb2" onclick="filterGal('texture',this)">Texture</button>
+    <button class="fb2" onclick="filterGal('waterproofing',this)">Waterproofing</button>
+  </div>
+  <div class="gm">
+    <div class="gi tall" data-cat="interior"><div class="gt" style="background:linear-gradient(135deg,#f7d4b8,#e8a87c)"><div class="go"><div><div class="gl">3BHK Full Interior</div><div class="ga">Behala, Kolkata</div></div></div></div></div>
+    <div class="gi" data-cat="exterior"><div class="gt" style="background:linear-gradient(135deg,#b8d4f0,#7aabda)"><div class="go"><div><div class="gl">Apartment Exterior</div><div class="ga">Salt Lake, Kolkata</div></div></div></div></div>
+    <div class="gi" data-cat="texture"><div class="gt" style="background:linear-gradient(135deg,#e8d4f0,#c8a8e0)"><div class="go"><div><div class="gl">Venetian Plaster</div><div class="ga">Ballygunge, Kolkata</div></div></div></div></div>
+    <div class="gi" data-cat="interior"><div class="gt" style="background:linear-gradient(135deg,#d4f0d8,#8cd4a0)"><div class="go"><div><div class="gl">Bedroom Feature Wall</div><div class="ga">New Town, Kolkata</div></div></div></div></div>
+    <div class="gi" data-cat="waterproofing"><div class="gt" style="background:linear-gradient(135deg,#d4e8f8,#9cc4e8)"><div class="go"><div><div class="gl">Terrace Waterproofing</div><div class="ga">Howrah</div></div></div></div></div>
+    <div class="gi tall" data-cat="texture"><div class="gt" style="background:linear-gradient(135deg,#f8e8d0,#e8c48c)"><div class="go"><div><div class="gl">3D Geometric Texture</div><div class="ga">Park Street, Kolkata</div></div></div></div></div>
+    <div class="gi" data-cat="exterior"><div class="gt" style="background:linear-gradient(135deg,#f0d4d4,#e09898)"><div class="go"><div><div class="gl">Commercial Building</div><div class="ga">Dum Dum, Kolkata</div></div></div></div></div>
+    <div class="gi" data-cat="interior"><div class="gt" style="background:linear-gradient(135deg,#d8f4f0,#8cd8d0)"><div class="go"><div><div class="gl">Kitchen &amp; Dining</div><div class="ga">Tollygunge, Kolkata</div></div></div></div></div>
+    <div class="gi" data-cat="waterproofing"><div class="gt" style="background:linear-gradient(135deg,#e0eaf8,#a0bce8)"><div class="go"><div><div class="gl">Bathroom Waterproofing</div><div class="ga">Rajarhat, Kolkata</div></div></div></div></div>
+  </div>
+  <div class="cta-s"><div><h2>Like what you see?</h2><p>Get a free quote for your home — site visit within 24 hours.</p></div><button class="btn-w" onclick="goPage('contact')">Get Free Quote</button></div>
+</div>
+
+<!-- AREAS -->
+<div id="pg-areas" class="page">
+  <div class="ar-hero">
+    <div>
+      <div class="lbl">Service Areas</div>
+      <h1 class="ttl">We paint homes across every corner of Kolkata</h1>
+      <p class="bod">Color Mate serves 8 major areas across Kolkata. Each neighbourhood has its own building types and paint challenges — and we know exactly what each one needs.</p>
+      <button class="btn-p" style="margin-top:24px" onclick="goPage('contact')">Get a Quote in Your Area</button>
+    </div>
+    <div class="ar-chips">
+      <div class="ar-chip"><div class="ar-chip-e">🏘️</div><div class="ar-chip-n">Behala</div><div class="ar-chip-t">420+ projects</div></div>
+      <div class="ar-chip"><div class="ar-chip-e">🏙️</div><div class="ar-chip-n">Salt Lake</div><div class="ar-chip-t">310+ projects</div></div>
+      <div class="ar-chip"><div class="ar-chip-e">🏡</div><div class="ar-chip-n">Ballygunge</div><div class="ar-chip-t">275+ projects</div></div>
+      <div class="ar-chip"><div class="ar-chip-e">🌆</div><div class="ar-chip-n">New Town</div><div class="ar-chip-t">220+ projects</div></div>
+      <div class="ar-chip"><div class="ar-chip-e">🌉</div><div class="ar-chip-n">Howrah</div><div class="ar-chip-t">195+ projects</div></div>
+      <div class="ar-chip"><div class="ar-chip-e">🎬</div><div class="ar-chip-n">Tollygunge</div><div class="ar-chip-t">180+ projects</div></div>
+      <div class="ar-chip"><div class="ar-chip-e">✈️</div><div class="ar-chip-n">Dum Dum</div><div class="ar-chip-t">165+ projects</div></div>
+      <div class="ar-chip"><div class="ar-chip-e">🏗️</div><div class="ar-chip-n">Rajarhat</div><div class="ar-chip-t">148+ projects</div></div>
+    </div>
+  </div>
+  <div class="ar-grid">
+    <div class="ar-card"><div class="ar-ct"><span>🏘️</span><div class="ar-badge">Most Popular</div></div><div class="ar-cb"><h3>Behala</h3><p>Serving all of Behala — from Sakher Bazar to Diamond Harbour Road.</p><div class="ar-link">420+ projects completed →</div></div></div>
+    <div class="ar-card"><div class="ar-ct"><span>🏙️</span><div class="ar-badge">Premium Zone</div></div><div class="ar-cb"><h3>Salt Lake</h3><p>New-build apartments and premium society complexes across all sectors.</p><div class="ar-link">310+ projects completed →</div></div></div>
+    <div class="ar-card"><div class="ar-ct"><span>🏡</span></div><div class="ar-cb"><h3>Ballygunge</h3><p>Heritage homes, modern apartments and commercial properties.</p><div class="ar-link">275+ projects completed →</div></div></div>
+    <div class="ar-card"><div class="ar-ct"><span>🌆</span><div class="ar-badge">Growing Fast</div></div><div class="ar-cb"><h3>New Town</h3><p>Modern apartments and tech park offices in Action Area I, II &amp; III.</p><div class="ar-link">220+ projects completed →</div></div></div>
+    <div class="ar-card"><div class="ar-ct"><span>🌉</span></div><div class="ar-cb"><h3>Howrah</h3><p>Residential societies, old buildings and industrial spaces across Howrah.</p><div class="ar-link">195+ projects completed →</div></div></div>
+    <div class="ar-card"><div class="ar-ct"><span>🎬</span></div><div class="ar-cb"><h3>Tollygunge</h3><p>Old bungalows, flats and residential complexes near the metro corridor.</p><div class="ar-link">180+ projects completed →</div></div></div>
+    <div class="ar-card"><div class="ar-ct"><span>✈️</span></div><div class="ar-cb"><h3>Dum Dum</h3><p>Airport zone apartments and housing societies near the metro line.</p><div class="ar-link">165+ projects completed →</div></div></div>
+    <div class="ar-card"><div class="ar-ct"><span>🏗️</span><div class="ar-badge">New Zone</div></div><div class="ar-cb"><h3>Rajarhat</h3><p>New developments, IT corridors and premium gated communities.</p><div class="ar-link">148+ projects completed →</div></div></div>
+  </div>
+  <div class="ar-bot"><div class="cta-s" style="border-radius:18px"><div><h2>Don't see your area?</h2><p>We cover all of Kolkata. Call us and we'll confirm service availability.</p></div><button class="btn-w" onclick="goPage('contact')">Contact Us</button></div></div>
+</div>
+
+<!-- BLOG -->
+<div id="pg-blog" class="page">
+  <div class="bl-hero">
+    <div><div class="lbl">The Color Mate Blog</div><h1 class="ttl" style="margin-bottom:0">Painting tips, trends &amp;<br/>advice for Kolkata homes</h1></div>
+    <div class="bl-sw"><input class="bl-si" type="text" id="blogSearch" placeholder="Search articles…" oninput="renderBlog()"/><span class="bl-si-ic">🔍</span></div>
+  </div>
+  <div class="bl-cats" id="blCats"></div>
+  <div class="bl-grid" id="blGrid"></div>
+</div>
+
+<!-- CONTACT -->
+<div id="pg-contact" class="page">
+  <div class="con-lay">
+    <div class="con-l">
+      <div class="lbl">Get in touch</div>
+      <h1 class="ttl">Let's paint your dream home</h1>
+      <div class="ci"><div class="ci-ic">📞</div><div><h4>Phone</h4><p>+91 98300 XXXXX</p></div></div>
+      <div class="ci"><div class="ci-ic">✉️</div><div><h4>Email</h4><p>hello@colormate.in</p></div></div>
+      <div class="ci"><div class="ci-ic">📍</div><div><h4>Office address</h4><p>12, Behala Road,<br/>Kolkata – 700 060, West Bengal</p></div></div>
+      <div class="ci"><div class="ci-ic">⏰</div><div><h4>Working hours</h4><p>Mon–Sat: 8am – 7pm<br/>Sunday: 10am – 4pm</p></div></div>
+      <div class="ci" style="cursor:pointer" onclick="window.open('https://wa.me/919830000000','_blank')"><div class="ci-ic" style="background:#25D366">💬</div><div><h4>WhatsApp</h4><p style="color:#25D366;font-weight:500">Chat with us instantly →</p></div></div>
+    </div>
+    <div class="con-r">
+      <div class="fh">Request a Free Quote</div>
+      <p class="fs">Fill in the details below and our team will get back to you within 2 hours on working days.</p>
+      <div class="fr">
+        <div class="fg2"><label>First Name *</label><input class="fc" id="f-fname" type="text" placeholder="Rahul"/><div class="ferr" id="e-fname"></div></div>
+        <div class="fg2"><label>Last Name</label><input class="fc" type="text" placeholder="Sharma"/></div>
+      </div>
+      <div class="fr">
+        <div class="fg2"><label>Phone *</label><input class="fc" id="f-phone" type="tel" placeholder="+91 98000 00000"/><div class="ferr" id="e-phone"></div></div>
+        <div class="fg2"><label>Email</label><input class="fc" type="email" placeholder="rahul@email.com"/></div>
+      </div>
+      <div class="fg2"><label>Area / Locality in Kolkata *</label><input class="fc" id="f-area" type="text" placeholder="e.g. Behala, Salt Lake, Ballygunge…"/><div class="ferr" id="e-area"></div></div>
+      <div class="fr">
+        <div class="fg2"><label>Service Required</label><select class="fc"><option>Interior Painting</option><option>Exterior Painting</option><option>Texture Finish</option><option>Waterproofing</option><option>Multiple Services</option></select></div>
+        <div class="fg2"><label>Property Type</label><select class="fc"><option>Apartment / Flat</option><option>Independent House</option><option>Villa / Duplex</option><option>Commercial Space</option><option>Society / Building</option></select></div>
+      </div>
+      <div class="fg2"><label>Approximate Area (sq ft)</label><input class="fc" type="text" placeholder="e.g. 900 sq ft"/></div>
+      <div class="fg2"><label>Message (optional)</label><textarea class="fc" placeholder="Any specific requirements, preferred date for site visit, paint preferences…"></textarea></div>
+      <button class="fsub" onclick="submitForm()">Submit — We'll Call You Back Within 2 Hours</button>
+      <div class="succ" id="successMsg">✅ Thank you! We've received your request. Our team will call you within 2 hours.</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHATSAPP -->
+<div class="waf">
+  <div class="wa-tip">Chat on WhatsApp</div>
+  <button class="wab" onclick="window.open('https://wa.me/919830000000','_blank')">
+    <div class="wa-ping"></div>
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.494.655 4.84 1.8 6.876L2 30l7.362-1.77A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 01-5.9-1.61l-.42-.25-4.368 1.05 1.088-4.26-.275-.44A11.54 11.54 0 014.4 16c0-6.397 5.203-11.6 11.6-11.6S27.6 9.603 27.6 16 22.397 27.6 16 27.6zm6.355-8.674c-.347-.174-2.056-1.014-2.375-1.13-.32-.115-.553-.173-.787.173-.233.346-.902 1.13-1.107 1.363-.203.232-.407.26-.754.086-.347-.173-1.465-.54-2.79-1.72-1.03-.92-1.727-2.054-1.929-2.4-.203-.347-.022-.535.152-.708.157-.157.347-.406.52-.61.174-.203.232-.347.348-.578.115-.232.058-.434-.029-.607-.086-.173-.787-1.895-1.077-2.593-.284-.683-.572-.59-.787-.6l-.672-.012c-.232 0-.608.087-.926.434-.318.347-1.213 1.186-1.213 2.89 0 1.703 1.242 3.35 1.415 3.582.174.233 2.445 3.731 5.924 5.234.828.357 1.474.57 1.977.73.83.264 1.586.226 2.183.137.666-.1 2.056-.84 2.347-1.653.29-.813.29-1.51.203-1.653-.086-.144-.318-.231-.665-.404z"/></svg>
+  </button>
+</div>
+
+<script>
+// ── NAVIGATION ──
+function goPage(id) {
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.nl').forEach(function(l){l.classList.remove('active')});
+  var pg = document.getElementById('pg-' + id);
+  if (pg) pg.classList.add('active');
+  document.querySelectorAll('.nl[data-page="'+id+'"]').forEach(function(l){l.classList.add('active')});
+  if (id === 'blog') renderBlog();
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('mobMenu').classList.remove('open');
+  var titles = {home:'Color Mate – Professional Painting Services in Kolkata',services:'Services – Color Mate Kolkata',about:'About Us – Color Mate Kolkata',gallery:'Gallery – Color Mate Kolkata',areas:'Service Areas – Color Mate Kolkata',blog:'Blog – Color Mate Kolkata',contact:'Contact & Free Quote – Color Mate Kolkata'};
+  document.title = titles[id] || 'Color Mate';
+}
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+
+// ── SWATCHES ──
+var palette=[{name:'Terracotta Bliss',hex:'#C0440A'},{name:'Kolkata Ivory',hex:'#F5EDD6'},{name:'Monsoon Sage',hex:'#6B8C6E'},{name:'Royal Indigo',hex:'#3D4F8C'},{name:'Pearl Mist',hex:'#E0DDD8'},{name:'Mustard Glow',hex:'#D4A017'},{name:'Teal Dream',hex:'#2E8B8B'},{name:'Dusty Rose',hex:'#C09090'},{name:'Deep Charcoal',hex:'#3D3830'},{name:'Mint Fresh',hex:'#8BCFB0'}];
+(function(){
+  var sg=document.getElementById('swatchGrid'),pw=document.getElementById('previewWall'),pn=document.getElementById('previewName');
+  palette.forEach(function(c){
+    var d=document.createElement('div');d.className='sw';d.style.background=c.hex;
+    if(['#F5EDD6','#E0DDD8','#8BCFB0'].indexOf(c.hex)>-1)d.style.border='1px solid #ccc';
+    d.onclick=function(){pw.style.background=c.hex;pn.textContent=c.name};
+    sg.appendChild(d);
+  });
+  pw.style.background=palette[0].hex;
+})();
+
+// ── CALCULATOR ──
+var rates={interior:12,exterior:18,texture:35,waterproofing:45};
+var qMult={standard:1,premium:1.42,luxury:1.88};
+var cAdd={good:0,minor:1600,major:3800};
+function calcUpdate(){
+  var area=parseInt(document.getElementById('areaSlider').value);
+  var coats=parseInt(document.getElementById('coatsSlider').value);
+  var stype=document.querySelector('input[name="stype"]:checked').value;
+  var qual=document.querySelector('input[name="qual"]:checked').value;
+  var cond=document.querySelector('input[name="cond"]:checked').value;
+  document.getElementById('areaVal').textContent=area.toLocaleString('en-IN')+' sq ft';
+  document.getElementById('coatsVal').textContent=coats+(coats===1?' coat':' coats');
+  var rate=rates[stype]*qMult[qual];
+  var mat=Math.round(area*rate*0.55*(1+(coats-1)*0.28));
+  var labour=Math.round(area*rate*0.35*(1+(coats-1)*0.18));
+  var primer=Math.round(area*(stype==='waterproofing'?0.8:1.2)+cAdd[cond]);
+  var low=mat+labour+primer;
+  var high=Math.round(low*1.19);
+  var days=Math.max(1,Math.round(area/420*(coats*0.72)));
+  document.getElementById('calcTotal').textContent='Rs'+low.toLocaleString('en-IN');
+  document.getElementById('calcRange').textContent='– Rs'+high.toLocaleString('en-IN')+' (depending on brand)';
+  document.getElementById('calcMat').textContent='Rs'+mat.toLocaleString('en-IN');
+  document.getElementById('calcLabour').textContent='Rs'+labour.toLocaleString('en-IN');
+  document.getElementById('calcPrimer').textContent='Rs'+primer.toLocaleString('en-IN');
+  document.getElementById('calcDays').textContent=days+'–'+(days+1)+' days';
+}
+calcUpdate();
+
+// ── FAQ ──
+var faqs=[
+  {q:'How long does painting a 2BHK take?',a:'A standard 2BHK (800–900 sq ft) typically takes 3–4 days including putty, primer and two coats. Texture work may add 1–2 days.'},
+  {q:'Do you supply the paints or should I buy?',a:'We can supply everything — Asian Paints, Berger, Dulux or Nerolac — included in the quote. Or we paint with paints you purchase yourself.'},
+  {q:'What is your payment structure?',a:'Milestone-based: 40% at project start, 40% at mid-point and the final 20% only after you are satisfied with the completed work.'},
+  {q:'Which areas of Kolkata do you serve?',a:'We cover all of Kolkata including Behala, Howrah, Salt Lake, New Town, Ballygunge, Tollygunge, Dum Dum, Rajarhat, Barasat, Garia, Park Street and surrounding areas.'},
+  {q:'Is there a warranty on the work?',a:'Yes. Interior painting: 30-day free touch-up warranty. Exterior painting: 2-year warranty. Waterproofing: 5-year material warranty.'},
+  {q:'Can you handle just one room or a single wall?',a:'Absolutely. We take all project sizes — from a single feature wall to a full residential complex. No job is too small.'},
+  {q:'Will my furniture be protected during painting?',a:'Yes. We cover all furniture with protective sheets, mask floors and seal doors before starting. Post-work cleanup is included at no extra charge.'},
+  {q:'How do I get an accurate quote?',a:'Book a free site visit. Our project manager visits your home, assesses wall conditions, measures areas and delivers a detailed itemized quote within 24 hours.'}
+];
+(function(){
+  var fc=document.getElementById('faqCols'),half=Math.ceil(faqs.length/2);
+  [faqs.slice(0,half),faqs.slice(half)].forEach(function(col){
+    var div=document.createElement('div');
+    col.forEach(function(f){div.innerHTML+='<div class="faq-i"><button class="faq-q" onclick="toggleFaq(this)">'+f.q+'<span class="faq-ic">+</span></button><div class="faq-a">'+f.a+'</div></div>'});
+    fc.appendChild(div);
+  });
+})();
+function toggleFaq(btn){
+  var item=btn.closest('.faq-i'),open=item.classList.contains('open');
+  document.querySelectorAll('.faq-i').forEach(function(i){i.classList.remove('open')});
+  if(!open)item.classList.add('open');
+}
+
+// ── GALLERY FILTER ──
+function filterGal(cat,btn){
+  document.querySelectorAll('.fb2').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  document.querySelectorAll('.gi').forEach(function(item){
+    item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';
+  });
+}
+
+// ── BLOG ──
+var blogPosts=[
+  {cat:'Interior',catColor:'#C0440A',bg:'linear-gradient(135deg,#f7d4b8,#e8a87c)',title:'Best Interior Paints for Kolkata\'s Humidity',excerpt:'Kolkata\'s monsoon season can wreak havoc on poorly chosen interior paints. Here\'s what actually works.',date:'Mar 2025',read:'5 min read'},
+  {cat:'Exterior',catColor:'#3D4F8C',bg:'linear-gradient(135deg,#b8d4f0,#7aabda)',title:'Protecting Your Building Exterior Before Monsoon',excerpt:'The right exterior paint prep can save lakhs in damage repair. Our expert checklist for Kolkata homes.',date:'Feb 2025',read:'7 min read'},
+  {cat:'Texture',catColor:'#6B8C6E',bg:'linear-gradient(135deg,#d4f0d8,#8cd4a0)',title:'Trending Texture Finishes in 2025',excerpt:'From Venetian plaster to 3D panels — the texture finishes Kolkata homeowners are choosing this year.',date:'Jan 2025',read:'4 min read'},
+  {cat:'Tips',catColor:'#D4A017',bg:'linear-gradient(135deg,#f8e8d0,#e8c48c)',title:'How to Prepare Your Home Before Painters Arrive',excerpt:'A quick checklist to ensure your painting project goes smoothly, right from day one.',date:'Dec 2024',read:'3 min read'},
+  {cat:'Waterproofing',catColor:'#2E8B8B',bg:'linear-gradient(135deg,#d4e8f8,#9cc4e8)',title:'Why Your Terrace Needs Waterproofing Now',excerpt:'Most Kolkata homeowners wait too long. Signs you need waterproofing before the next monsoon hits.',date:'Nov 2024',read:'6 min read'},
+  {cat:'Interior',catColor:'#C0440A',bg:'linear-gradient(135deg,#e8d4f0,#c8a8e0)',title:'Choosing the Right Colour for Small Rooms',excerpt:'Expert tricks to make small rooms feel larger using colour, sheen levels and accent walls.',date:'Oct 2024',read:'5 min read'}
+];
+var blogCat='All';
+var blogCats=['All','Interior','Exterior','Texture','Waterproofing','Tips'];
+function renderBlog(){
+  var search=document.getElementById('blogSearch').value.toLowerCase();
+  // Render category buttons
+  var catsEl=document.getElementById('blCats');
+  if(!catsEl.children.length){
+    blogCats.forEach(function(c){
+      var btn=document.createElement('button');
+      btn.className='bl-cb'+(c==='All'?' active':'');
+      btn.textContent=c;
+      btn.onclick=function(){blogCat=c;document.querySelectorAll('.bl-cb').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');renderBlog()};
+      catsEl.appendChild(btn);
+    });
+  }
+  var grid=document.getElementById('blGrid');
+  var filtered=blogPosts.filter(function(p){
+    return(blogCat==='All'||p.cat===blogCat)&&(p.title.toLowerCase().includes(search)||p.excerpt.toLowerCase().includes(search));
+  });
+  if(!filtered.length){grid.innerHTML='<div class="no-results">No articles found matching your search.</div>';return}
+  grid.innerHTML=filtered.map(function(p){return'<div class="bl-card"><div class="bl-ci" style="background:'+p.bg+'"><div class="bl-cbadge" style="background:'+p.catColor+'22;color:'+p.catColor+'">'+p.cat+'</div></div><div class="bl-cbody"><div class="bl-ct">'+p.title+'</div><div class="bl-ce">'+p.excerpt+'</div><div class="bl-cm"><span>'+p.date+' · '+p.read+'</span><span class="bl-cr">Read more →</span></div></div></div>'}).join('');
+}
+
+// ── CONTACT FORM ──
+function submitForm(){
+  var fname=document.getElementById('f-fname'),phone=document.getElementById('f-phone'),area=document.getElementById('f-area');
+  var ok=true;
+  [fname,phone,area].forEach(function(f){f.classList.remove('err')});
+  document.querySelectorAll('.ferr').forEach(function(e){e.textContent=''});
+  if(!fname.value.trim()){fname.classList.add('err');document.getElementById('e-fname').textContent='Required';ok=false}
+  if(!phone.value.trim()){phone.classList.add('err');document.getElementById('e-phone').textContent='Required';ok=false}
+  if(!area.value.trim()){area.classList.add('err');document.getElementById('e-area').textContent='Required';ok=false}
+  if(ok){document.getElementById('successMsg').style.display='block';document.getElementById('successMsg').scrollIntoView({behavior:'smooth',block:'nearest'})}
+}
+</script>
+</body>
+</html>
