@@ -12,93 +12,104 @@ const Home = ({ onNavigate }) => {
   }, []);
 
   return (
-    <div className="page-anim">
+    <div className="page-anim min-h-screen">
       <AdditionalServicesModal 
         isOpen={showModal} 
         onClose={() => setShowModal(false)} 
         onNavigate={onNavigate} 
       />
-      {/* Hero Section */}
-      <section className="min-h-[90vh] grid md:grid-cols-2 items-center px-6 md:px-12 gap-16 relative overflow-hidden py-16 md:py-0">
-        <div className="absolute -right-24 -top-24 w-[540px] h-[540px] bg-radial-[circle] from-rust/10 to-transparent pointer-events-none hidden md:block"></div>
+      {/* Hero Section - Modern Color-Block Architecture (Berger & Orientbell Style) */}
+      <section className="min-h-[90vh] flex flex-col md:flex-row items-stretch relative overflow-hidden bg-white">
         
-        <div>
-          <div className="text-[12px] font-medium tracking-[2.5px] uppercase text-rust mb-4.5">Kolkata's Most Trusted Painters Since 2010</div>
-          <h1 className="font-display text-[clamp(42px,5.5vw,72px)] font-black leading-[1.02] text-ink mb-5.5">
-            Paint your home with <em className="not-italic text-rust">confidence</em>
-          </h1>
-          <p className="text-base leading-loose text-warm-gray max-w-md mb-8.5">
-            Professional interior, exterior, texture and waterproofing services for Kolkata homes and businesses. Certified painters, premium materials, milestone payments.
-          </p>
-          <div className="flex flex-wrap gap-3 mb-11">
-            <button 
-              className="bg-rust text-white border-none font-body text-sm font-medium px-7 py-3 rounded-xl cursor-pointer transition-all hover:bg-rust-light hover:-translate-y-0.5"
-              onClick={() => onNavigate('contact')}
-            >
-              Get Free Quote
-            </button>
-            <button 
-              className="bg-transparent text-ink border-[1.5px] border-border font-body text-sm font-medium px-7 py-3 rounded-xl cursor-pointer transition-all hover:border-rust hover:text-rust"
-              onClick={() => onNavigate('contact')}
-            >
-              Book Site Visit
-            </button>
-          </div>
-          <div className="flex gap-9 pt-9 border-t border-border">
-            <div>
-              <div className="font-display text-3xl font-black text-ink">2,400+</div>
-              <div className="text-[12px] text-warm-gray mt-1">Projects completed</div>
+        {/* Zone 1: Navy Anchor (Left) - 45% Width */}
+        <div className="md:w-[45%] bg-[#0A034F] relative px-6 md:px-12 lg:px-20 py-24 flex flex-col justify-center text-white overflow-hidden">
+          {/* Subtle Geometric Overlay */}
+          <div className="absolute top-0 left-0 w-full h-full bg-white/5 skew-x-[-15deg] -translate-x-1/2 pointer-events-none border-r border-white/10"></div>
+          
+          <div className="relative z-10">
+            <div className="text-[11px] font-bold tracking-[3.5px] uppercase text-[#FFD400] mb-6 drop-shadow-sm">
+              Kolkata's Most Trusted Painters
             </div>
-            <div>
-              <div className="font-display text-3xl font-black text-ink">14</div>
-              <div className="text-[12px] text-warm-gray mt-1">Years experience</div>
-            </div>
-            <div>
-              <div className="font-display text-3xl font-black text-ink">4.9★</div>
-              <div className="text-[12px] text-warm-gray mt-1">Google rating</div>
+            <h1 className="font-display text-[clamp(42px,5.5vw,76px)] font-black leading-[0.98] mb-6 -tracking-wider">
+              Paint your home with <br/>
+              <span className="text-[#FFD400] italic underline decoration-white/20 underline-offset-8">confidence.</span>
+            </h1>
+            <p className="text-lg leading-relaxed text-white/70 max-w-sm mb-12 font-medium">
+              Professional interior, exterior, texture and waterproofing. Experience the gold standard of painting with Kolkata's certified masters.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 pt-12 border-t border-white/10">
+              <div>
+                <div className="font-display text-4xl font-black text-[#FFD400] leading-none">2.4k+</div>
+                <div className="text-[10px] uppercase tracking-widest text-white/40 mt-1.5 font-bold">Projects Done</div>
+              </div>
+              <div className="mx-4 md:mx-8 h-10 w-[1px] bg-white/10"></div>
+              <div>
+                <div className="font-display text-4xl font-black text-[#FFD400] leading-none">4.9★</div>
+                <div className="text-[10px] uppercase tracking-widest text-white/40 mt-1.5 font-bold">Google Rating</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="hidden md:flex items-center justify-center">
-          <div className="bg-white rounded-[32px] border border-border p-10 w-full max-w-[420px] shadow-[0_32px_80px_rgba(0,0,0,0.12)]">
-            <div className="mb-8">
-              <h3 className="font-display text-2xl font-black text-ink mb-2">Request a Quote</h3>
-              <p className="text-[13px] text-warm-gray">Get a professional estimate for your project.</p>
+        {/* Zone 2: Neutral Base (Center) - Dynamic Width */}
+        <div className="flex-1 bg-white relative px-6 md:px-12 py-24 flex items-center justify-center">
+          
+          <div className="relative z-10 w-full max-w-lg">
+            <div className="bg-white rounded-[40px] border border-gray-100 p-10 md:p-12 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)]">
+              <div className="mb-10 border-l-8 border-[#FFD400] pl-6">
+                <h3 className="font-display text-3xl font-black text-[#0A034F] mb-1">Request a Quote</h3>
+                <p className="text-sm font-semibold text-warm-gray">Professional estimate within 24 hours.</p>
+              </div>
+              
+              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Form submitted! We will contact you soon.'); }}>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase text-[#0A034F]/40 tracking-wider ml-1">Name</label>
+                    <input required type="text" placeholder="John Doe" className="w-full bg-[#0A034F]/5 border border-transparent rounded-2xl px-5 py-4 text-sm font-bold text-[#0A034F] focus:bg-white focus:border-[#FFD400] outline-none transition-all placeholder:text-[#0A034F]/20" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase text-[#0A034F]/40 tracking-wider ml-1">Email</label>
+                    <input required type="email" placeholder="john@email.com" className="w-full bg-[#0A034F]/5 border border-transparent rounded-2xl px-5 py-4 text-sm font-bold text-[#0A034F] focus:bg-white focus:border-[#FFD400] outline-none transition-all placeholder:text-[#0A034F]/20" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase text-[#0A034F]/40 tracking-wider ml-1">Phone</label>
+                    <input required type="tel" placeholder="+91 98..." className="w-full bg-[#0A034F]/5 border border-transparent rounded-2xl px-5 py-4 text-sm font-bold text-[#0A034F] focus:bg-white focus:border-[#FFD400] outline-none transition-all placeholder:text-[#0A034F]/20" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase text-[#0A034F]/40 tracking-wider ml-1">Place</label>
+                    <input required type="text" placeholder="Salt Lake" className="w-full bg-[#0A034F]/5 border border-transparent rounded-2xl px-5 py-4 text-sm font-bold text-[#0A034F] focus:bg-white focus:border-[#FFD400] outline-none transition-all placeholder:text-[#0A034F]/20" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase text-[#0A034F]/40 tracking-wider ml-1">Message</label>
+                  <textarea required rows="2" placeholder="Your project details..." className="w-full bg-[#0A034F]/5 border border-transparent rounded-2xl px-5 py-4 text-sm font-bold text-[#0A034F] focus:bg-white focus:border-[#FFD400] outline-none transition-all placeholder:text-[#0A034F]/20 resize-none"></textarea>
+                </div>
+
+                <button type="submit" className="w-full bg-[#0A034F] text-white font-black py-5 rounded-2xl shadow-2xl shadow-[#0A034F]/20 hover:bg-[#1A05A2] hover:scale-[1.02] transform transition-all mt-6 text-[12px] uppercase tracking-widest">
+                  Secure Free Quote
+                </button>
+              </form>
             </div>
-            
-            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Form submitted! We will contact you soon.'); }}>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Name</label>
-                  <input required type="text" placeholder="John Doe" className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Email</label>
-                  <input required type="email" placeholder="john@example.com" className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
-                </div>
-              </div>
+          </div>
+        </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Phone</label>
-                  <input required type="tel" placeholder="+91 98765..." className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Place</label>
-                  <input required type="text" placeholder="e.g. Salt Lake" className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Message</label>
-                <textarea required rows="3" placeholder="Tell us about your project..." className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50 resize-none"></textarea>
-              </div>
-
-              <button type="submit" className="w-full bg-rust text-white font-bold py-4 rounded-xl shadow-lg shadow-rust/20 hover:bg-rust-light hover:shadow-xl hover:-translate-y-0.5 transition-all mt-4 tracking-wide">
-                Get Free Estimate
-              </button>
-            </form>
+        {/* Zone 3: Yellow Feature (Right Strip) - Fixed Width */}
+        <div className="md:w-[15%] bg-[#FFD400] relative hidden md:flex flex-col items-center justify-center p-8 lg:p-12 overflow-hidden">
+          {/* Vertical Decor Stripes (Orientbell Style) */}
+          <div className="absolute inset-y-0 left-4 w-1 bg-white/20"></div>
+          <div className="absolute inset-y-0 right-4 w-1 bg-white/20"></div>
+          
+          {/* Floating Action CTA */}
+          <div 
+            onClick={() => onNavigate('calculator')}
+            className="cursor-pointer rotate-90 whitespace-nowrap font-display text-4xl font-black text-[#0A034F] tracking-tighter opacity-20 transform -translate-x-12"
+          >
+            PAINT CALCULATOR
           </div>
         </div>
       </section>
