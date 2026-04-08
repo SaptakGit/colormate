@@ -1,24 +1,23 @@
-import { useState } from 'react'
-import Calculator from './Calculator'
+import { useState, useEffect } from 'react'
+import AdditionalServicesModal from './AdditionalServicesModal'
 
 const Home = ({ onNavigate }) => {
-  const palette = [
-    { name: 'Terracotta Bliss', hex: '#C0440A' },
-    { name: 'Kolkata Ivory', hex: '#F5EDD6' },
-    { name: 'Monsoon Sage', hex: '#6B8C6E' },
-    { name: 'Royal Indigo', hex: '#3D4F8C' },
-    { name: 'Pearl Mist', hex: '#E0DDD8' },
-    { name: 'Mustard Glow', hex: '#D4A017' },
-    { name: 'Teal Dream', hex: '#2E8B8B' },
-    { name: 'Dusty Rose', hex: '#C09090' },
-    { name: 'Deep Charcoal', hex: '#3D3830' },
-    { name: 'Mint Fresh', hex: '#8BCFB0' }
-  ];
+  const [showModal, setShowModal] = useState(false);
 
-  const [currentColor, setCurrentColor] = useState(palette[0]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 1200); // Trigger every time the page is opened
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="page-anim">
+      <AdditionalServicesModal 
+        isOpen={showModal} 
+        onClose={() => setShowModal(false)} 
+        onNavigate={onNavigate} 
+      />
       {/* Hero Section */}
       <section className="min-h-[90vh] grid md:grid-cols-2 items-center px-6 md:px-12 gap-16 relative overflow-hidden py-16 md:py-0">
         <div className="absolute -right-24 -top-24 w-[540px] h-[540px] bg-radial-[circle] from-rust/10 to-transparent pointer-events-none hidden md:block"></div>
@@ -62,26 +61,44 @@ const Home = ({ onNavigate }) => {
         </div>
 
         <div className="hidden md:flex items-center justify-center">
-          <div className="bg-white rounded-[22px] border border-border p-8 w-full max-w-[390px] shadow-[0_24px_64px_rgba(0,0,0,0.09)]">
-            <div className="grid grid-cols-5 gap-2 mb-5">
-              {palette.map((color) => (
-                <div 
-                  key={color.name}
-                  className="h-12 rounded-lg cursor-pointer transition-transform hover:scale-110 border border-black/5"
-                  style={{ backgroundColor: color.hex }}
-                  onClick={() => setCurrentColor(color)}
-                ></div>
-              ))}
+          <div className="bg-white rounded-[32px] border border-border p-10 w-full max-w-[420px] shadow-[0_32px_80px_rgba(0,0,0,0.12)]">
+            <div className="mb-8">
+              <h3 className="font-display text-2xl font-black text-ink mb-2">Request a Quote</h3>
+              <p className="text-[13px] text-warm-gray">Get a professional estimate for your project.</p>
             </div>
-            <div className="rounded-2xl h-36 relative overflow-hidden mb-3.5 bg-linear-to-br from-[#f5ede6] to-[#e8d8cc]">
-              <div 
-                className="absolute inset-0 transition-colors duration-500 opacity-40"
-                style={{ backgroundColor: currentColor.hex }}
-              ></div>
-              <div className="absolute bottom-3 right-4 text-3xl opacity-60">🏠</div>
-            </div>
-            <div className="text-[13px] font-semibold text-ink text-center">{currentColor.name}</div>
-            <div className="text-[11.5px] text-warm-gray text-center mt-1">Preview paint on your wall</div>
+            
+            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Form submitted! We will contact you soon.'); }}>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Name</label>
+                  <input required type="text" placeholder="John Doe" className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Email</label>
+                  <input required type="email" placeholder="john@example.com" className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Phone</label>
+                  <input required type="tel" placeholder="+91 98765..." className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Place</label>
+                  <input required type="text" placeholder="e.g. Salt Lake" className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50" />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[11px] font-bold uppercase text-muted tracking-wide ml-1">Message</label>
+                <textarea required rows="3" placeholder="Tell us about your project..." className="w-full bg-warm/20 border border-border rounded-xl px-4 py-3 text-sm focus:border-rust focus:ring-4 focus:ring-rust/5 outline-none transition-all placeholder:text-muted/50 resize-none"></textarea>
+              </div>
+
+              <button type="submit" className="w-full bg-rust text-white font-bold py-4 rounded-xl shadow-lg shadow-rust/20 hover:bg-rust-light hover:shadow-xl hover:-translate-y-0.5 transition-all mt-4 tracking-wide">
+                Get Free Estimate
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -136,8 +153,26 @@ const Home = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Calculator Section */}
-      <Calculator />
+      {/* Calculator CTA Section */}
+      <section className="bg-sand/30 py-24 px-6 md:px-12 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 border border-border bg-white p-12 md:p-20 rounded-[3rem] shadow-2xl shadow-accent/5">
+          <div className="max-w-xl text-center md:text-left">
+            <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">Cost Estimator</div>
+            <h2 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-6">Want to know exactly what your project will cost?</h2>
+            <p className="text-warm-gray leading-loose mb-0">
+              Our professional painting cost calculator gives you a detailed breakdown based on carpet area, paint quality, and surface condition.
+            </p>
+          </div>
+          <button 
+            onClick={() => onNavigate('calculator')}
+            className="bg-accent text-white font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/20 hover:bg-accent-light hover:scale-105 transition-all flex items-center gap-3 whitespace-nowrap"
+          >
+            Open Calculator
+            <span className="text-xl">📊</span>
+          </button>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section className="bg-ink py-24 px-6 md:px-12 whitespace-normal overflow-hidden">

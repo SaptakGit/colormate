@@ -44,12 +44,22 @@ const Header = ({ activePage, onNavigate }) => {
         ))}
       </div>
 
-      <button 
-        className="hidden md:block bg-rust text-white border-none font-body text-[13px] font-medium px-4.5 py-2.5 rounded-lg cursor-pointer transition-all hover:bg-rust-light"
-        onClick={() => handleNavigate('contact')}
-      >
-        Get Free Quote
-      </button>
+      <div className="hidden md:flex items-center gap-6">
+        <a 
+          href="tel:+919830000000"
+          className="flex items-center gap-2 text-[13px] font-bold text-ink hover:text-rust transition-colors"
+        >
+          <span className="text-rust text-base">📞</span>
+          +91 98300 00000
+        </a>
+
+        <button 
+          className="bg-rust text-white border-none font-body text-[13px] font-medium px-4.5 py-2.5 rounded-lg cursor-pointer transition-all hover:bg-rust-light"
+          onClick={() => handleNavigate('contact')}
+        >
+          Get Free Quote
+        </button>
+      </div>
 
       {/* Mobile Menu Toggle */}
       <button 
@@ -73,6 +83,14 @@ const Header = ({ activePage, onNavigate }) => {
               {link.label}
             </button>
           ))}
+          <div className="h-px bg-border my-2 mx-3"></div>
+          <a 
+            href="tel:+919830000000"
+            className="flex items-center gap-3 text-ink font-bold p-3 rounded-md hover:bg-rust/8 transition-all"
+          >
+            <span className="text-rust text-xl">📞</span>
+            +91 98300 00000
+          </a>
           <button 
             className="text-left bg-transparent border-none font-body text-base text-rust font-semibold p-3 rounded-md cursor-pointer transition-all hover:bg-rust/8"
             onClick={() => handleNavigate('contact')}

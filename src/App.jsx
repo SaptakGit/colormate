@@ -8,6 +8,7 @@ import Gallery from './components/Gallery'
 import Areas from './components/Areas'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
+import CalculatorPage from './components/CalculatorPage'
 
 function App() {
   const [activePage, setActivePage] = useState('home');
@@ -16,6 +17,7 @@ function App() {
     switch (activePage) {
       case 'home': return <Home onNavigate={setActivePage} />;
       case 'services': return <Services onNavigate={setActivePage} />;
+      case 'calculator': return <CalculatorPage onNavigate={setActivePage} />;
       case 'about': return <About onNavigate={setActivePage} />;
       case 'gallery': return <Gallery onNavigate={setActivePage} />;
       case 'areas': return <Areas onNavigate={setActivePage} />;

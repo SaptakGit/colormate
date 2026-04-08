@@ -10,6 +10,13 @@
   --color-warm-gray: #8C7E72;
   --color-border: #E8E0D6;
 
+  /* Premium Theme Extension */
+  --color-sand: #e8dfc8;
+  --color-warm: #f5f0e8;
+  --color-accent: #d4541a;
+  --color-accent2: #f0a830;
+  --color-muted: #7a6e5e;
+
   --font-display: "Playfair Display", serif;
   --font-body: "DM Sans", sans-serif;
 }
