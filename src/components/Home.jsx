@@ -53,7 +53,7 @@ const Home = ({ onNavigate }) => {
         </div>
 
         {/* Zone 2: Neutral Base (Center) - Dynamic Width */}
-        <div className="flex-1 bg-white relative px-6 md:px-12 py-24 flex items-center justify-center">
+        <div className="flex-1 bg-[#FFD400] relative px-6 md:px-12 py-24 flex items-center justify-center">
           
           <div className="relative z-10 w-full max-w-lg">
             <div className="bg-white rounded-[40px] border border-gray-100 p-10 md:p-12 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)]">
@@ -98,20 +98,6 @@ const Home = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Zone 3: Yellow Feature (Right Strip) - Fixed Width */}
-        <div className="md:w-[15%] bg-[#FFD400] relative hidden md:flex flex-col items-center justify-center p-8 lg:p-12 overflow-hidden">
-          {/* Vertical Decor Stripes (Orientbell Style) */}
-          <div className="absolute inset-y-0 left-4 w-1 bg-white/20"></div>
-          <div className="absolute inset-y-0 right-4 w-1 bg-white/20"></div>
-          
-          {/* Floating Action CTA */}
-          <div 
-            onClick={() => onNavigate('calculator')}
-            className="cursor-pointer rotate-90 whitespace-nowrap font-display text-4xl font-black text-[#0A034F] tracking-tighter opacity-20 transform -translate-x-12"
-          >
-            PAINT CALCULATOR
-          </div>
-        </div>
       </section>
 
       {/* Services Summary Section */}
@@ -124,12 +110,16 @@ const Home = ({ onNavigate }) => {
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 mt-12">
             {[
-              { icon: '🎨', title: 'Interior Painting', desc: 'Transform your living spaces with Asian Paints Royale, Berger Silk and Dulux Velvet Touch.' },
-              { icon: '🏠', title: 'Exterior Painting', desc: 'Weather-shield and UV-resistant paints to protect your facade from heavy rain and sun damage.' },
-              { icon: '✨', title: 'Texture Finish', desc: 'Sand texture, Venetian plaster, 3D geometric and metallic finishes for walls that stand out.' },
-              { icon: '💧', title: 'Waterproofing', desc: 'Permanently seal terraces, bathrooms and walls using Dr. Fixit and BASF systems.' }
+              { id: 'interior', icon: '🎨', title: 'Interior Painting', desc: 'Transform your living spaces with Asian Paints Royale, Berger Silk and Dulux Velvet Touch.' },
+              { id: 'exterior', icon: '🏠', title: 'Exterior Painting', desc: 'Weather-shield and UV-resistant paints to protect your facade from heavy rain and sun damage.' },
+              { id: 'texture', icon: '✨', title: 'Texture Finish', desc: 'Sand texture, Venetian plaster, 3D geometric and metallic finishes for walls that stand out.' },
+              { id: 'waterproofing', icon: '💧', title: 'Waterproofing', desc: 'Permanently seal terraces, bathrooms and walls using Dr. Fixit and BASF systems.' }
             ].map((svc) => (
-              <div key={svc.title} className="bg-white border border-border rounded-[18px] p-7 cursor-pointer transition-all hover:border-rust/35 hover:-translate-y-1.5 hover:shadow-xl group relative overflow-hidden">
+              <div 
+                key={svc.title} 
+                onClick={() => onNavigate('service-details', svc.id)}
+                className="bg-white border border-border rounded-[18px] p-7 cursor-pointer transition-all hover:border-rust/35 hover:-translate-y-1.5 hover:shadow-xl group relative overflow-hidden"
+              >
                 <div className="w-11.5 h-11.5 rounded-xl bg-rust/10 flex items-center justify-center text-2xl mb-4.5">{svc.icon}</div>
                 <h3 className="font-display text-lg font-bold text-ink mb-2 group-hover:text-rust transition-colors">{svc.title}</h3>
                 <p className="text-[13px] text-warm-gray leading-relaxed">{svc.desc}</p>

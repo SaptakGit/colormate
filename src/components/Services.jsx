@@ -38,6 +38,7 @@ const Services = ({ onNavigate }) => {
 
   const servicesList = [
     {
+      id: 'interior',
       title: 'Interior Painting',
       icon: '🎨',
       bg: 'from-[#fde8d8] to-[#f5c9a8]',
@@ -52,6 +53,7 @@ const Services = ({ onNavigate }) => {
       ]
     },
     {
+      id: 'exterior',
       title: 'Exterior Painting',
       icon: '🏠',
       bg: 'from-[#dce8f5] to-[#b8d4ed]',
@@ -66,6 +68,7 @@ const Services = ({ onNavigate }) => {
       ]
     },
     {
+      id: 'texture',
       title: 'Texture Finish',
       icon: '✨',
       bg: 'from-[#f0e8f5] to-[#dcc8ec]',
@@ -80,6 +83,7 @@ const Services = ({ onNavigate }) => {
       ]
     },
     {
+      id: 'waterproofing',
       title: 'Waterproofing',
       icon: '💧',
       bg: 'from-[#d8f0e8] to-[#a8dcc8]',
@@ -279,10 +283,10 @@ const Services = ({ onNavigate }) => {
                     ))}
                   </ul>
                   <button 
-                    onClick={() => onNavigate('contact')}
+                    onClick={() => onNavigate('service-details', svc.id)}
                     className="w-full py-4 border-2 border-border bg-white rounded-2xl font-bold text-sm text-ink group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300"
                   >
-                    Discuss Project
+                    View Details
                   </button>
                 </div>
               </div>

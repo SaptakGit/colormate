@@ -9,31 +9,41 @@ import Areas from './components/Areas'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
 import CalculatorPage from './components/CalculatorPage'
+import ServiceDetails from './components/ServiceDetails'
 
 function App() {
   const [activePage, setActivePage] = useState('home');
+  const [selectedService, setSelectedService] = useState('interior');
+
+  const onNavigate = (page, serviceId = null) => {
+    setActivePage(page);
+    if (serviceId) {
+      setSelectedService(serviceId);
+    }
+  };
 
   const renderPage = () => {
     switch (activePage) {
-      case 'home': return <Home onNavigate={setActivePage} />;
-      case 'services': return <Services onNavigate={setActivePage} />;
-      case 'calculator': return <CalculatorPage onNavigate={setActivePage} />;
-      case 'about': return <About onNavigate={setActivePage} />;
-      case 'gallery': return <Gallery onNavigate={setActivePage} />;
-      case 'areas': return <Areas onNavigate={setActivePage} />;
-      case 'blog': return <Blog onNavigate={setActivePage} />;
-      case 'contact': return <Contact onNavigate={setActivePage} />;
-      default: return <Home onNavigate={setActivePage} />;
+      case 'home': return <Home onNavigate={onNavigate} />;
+      case 'services': return <Services onNavigate={onNavigate} />;
+      case 'service-details': return <ServiceDetails activeTab={selectedService} onNavigate={onNavigate} />;
+      case 'calculator': return <CalculatorPage onNavigate={onNavigate} />;
+      case 'about': return <About onNavigate={onNavigate} />;
+      case 'gallery': return <Gallery onNavigate={onNavigate} />;
+      case 'areas': return <Areas onNavigate={onNavigate} />;
+      case 'blog': return <Blog onNavigate={onNavigate} />;
+      case 'contact': return <Contact onNavigate={onNavigate} />;
+      default: return <Home onNavigate={onNavigate} />;
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col font-body bg-cream text-inkSelection">
-      <Header activePage={activePage} onNavigate={setActivePage} />
+      <Header activePage={activePage} onNavigate={onNavigate} />
       <main className="flex-grow">
         {renderPage()}
       </main>
-      <Footer onNavigate={setActivePage} />
+      <Footer onNavigate={onNavigate} />
       
       {/* WhatsApp Floating Button */}
       <div className="fixed bottom-7 right-7 z-[999] flex flex-col items-end gap-2.5 group">
