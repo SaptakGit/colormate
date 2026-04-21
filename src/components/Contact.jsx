@@ -1,13 +1,33 @@
 import { useState } from 'react'
+import axios from 'axios';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [leadName, setName] = useState("");
+  const [leadPhone, setLeadPhone] = useState("");
+  const [leadService, setLeadService] = useState("");
+  const [leadEstdArea, setEstdArea] = useState("");
+  const [leadMessage, setLeadMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     // Simulate API call
+    try{
+      const contactResponse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/leads/store`, {
+        name: leadName,
+        phone: leadPhone,
+        service: leadService,
+        estd_area: leadEstdArea,
+        message: leadMessage
+      });
+      if (contactResponse.data.success) {
+        setSubmitted(true);
+      }
+    }catch(error){
+      console.log(error);
+    }
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -76,6 +96,9 @@ const Contact = () => {
               <input 
                 required type="text" placeholder="e.g. Rahul Das" 
                 className="bg-cream border border-border rounded-xl p-3 px-4.5 font-body text-[13.5px] outline-none focus:border-rust"
+                name="name"
+                value={leadName}
+                onChange={(e) => setName(e.target.value)} 
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -83,11 +106,18 @@ const Contact = () => {
               <input 
                 required type="tel" placeholder="+91 00000 00000" 
                 className="bg-cream border border-border rounded-xl p-3 px-4.5 font-body text-[13.5px] outline-none focus:border-rust"
+                name="phone"
+                value={leadPhone}
+                onChange={(e) => setLeadPhone(e.target.value)}  
               />
             </div>
             <div className="flex flex-col gap-2">
               <label className="text-[11.5px] font-bold text-ink uppercase tracking-widest">Service Required</label>
-              <select className="bg-cream border border-border rounded-xl p-3 px-4.5 font-body text-[13.5px] outline-none cursor-pointer focus:border-rust">
+              <select className="bg-cream border border-border rounded-xl p-3 px-4.5 font-body text-[13.5px] outline-none cursor-pointer focus:border-rust"
+                name="service"
+                value={leadService}
+                onChange={(e) => setLeadService(e.target.value)}  
+              >
                 <option>Interior Painting</option>
                 <option>Exterior Painting</option>
                 <option>Texture Finish</option>
@@ -100,6 +130,9 @@ const Contact = () => {
               <input 
                 type="number" placeholder="e.g. 1000" 
                 className="bg-cream border border-border rounded-xl p-3 px-4.5 font-body text-[13.5px] outline-none focus:border-rust"
+                name="estd_area"
+                value={leadEstdArea}
+                onChange={(e) => setEstdArea(e.target.value)}   
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -107,6 +140,9 @@ const Contact = () => {
               <textarea 
                 rows="3" placeholder="Tell us more about your requirement..."
                 className="bg-cream border border-border rounded-xl p-3 px-4.5 font-body text-[13.5px] outline-none focus:border-rust resize-none"
+                name="message"
+                value={leadMessage}
+                onChange={(e) => setLeadMessage(e.target.value)}  
               ></textarea>
             </div>
             <button 
