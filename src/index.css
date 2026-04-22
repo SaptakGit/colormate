@@ -42,3 +42,27 @@
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Team Carousel Utilities */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.team-card-gradient {
+  background: linear-gradient(to top, rgba(26, 20, 16, 0.95) 0%, rgba(26, 20, 16, 0.4) 50%, transparent 100%);
+}
+
+.team-card-grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.team-card-grayscale:hover {
+  filter: grayscale(0%);
+}
+

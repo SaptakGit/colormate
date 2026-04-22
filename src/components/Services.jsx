@@ -5,6 +5,21 @@ const Services = ({ onNavigate }) => {
   const [showModal, setShowModal] = useState(false);
   const revealsRef = useRef([]);
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderImages = [
+    '/images/slider/slider1.png',
+    '/images/slider/slider2.png',
+    '/images/slider/slider3.png',
+    '/images/slider/slider4.png'
+  ];
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    }, 5000);
+    return () => clearInterval(slideTimer);
+  }, [sliderImages.length]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
@@ -209,9 +224,25 @@ const Services = ({ onNavigate }) => {
               
               <div className="relative bg-ink rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl translate-x-4 lg:translate-x-0">
                 <div className="aspect-[4/5] flex flex-col justify-end p-10 lg:p-14 transition-transform duration-700 group-hover:scale-[1.03]">
-                  {/* Premium Visuals Inside Card */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#2a1f10] via-ink to-[#0d0a05]"></div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[140px] font-display font-black text-white/[0.03] select-none pointer-events-none">CM</div>
+                  {/* Image Slider Background */}
+                  <div className="absolute inset-0 z-0">
+                    {sliderImages.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                          currentSlide === idx ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      >
+                        <img 
+                          src={img} 
+                          alt={`Project ${idx + 1}`} 
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Overlay to maintain contrast */}
+                        <div className="absolute inset-0 bg-black/40"></div>
+                      </div>
+                    ))}
+                  </div>
                   
                   {/* Rotating Site Visit Badge */}
                   <div className="absolute top-10 right-10 w-24 h-24 bg-accent text-white rounded-full flex flex-col items-center justify-center font-display font-extrabold leading-tight text-center text-[10px] border border-white/20 shadow-2xl z-20 group-hover:rotate-12 transition-transform duration-500">
