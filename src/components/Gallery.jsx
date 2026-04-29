@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Gallery = ({ onNavigate }) => {
+const Gallery = () => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState('all');
 
   const categories = [
@@ -83,7 +85,7 @@ const Gallery = ({ onNavigate }) => {
         </div>
         <button 
           className="bg-white text-rust border-none font-body text-sm font-semibold px-8 py-3.5 rounded-xl cursor-pointer transition-all hover:bg-cream whitespace-nowrap"
-          onClick={() => onNavigate('contact')}
+          onClick={() => navigate('/contact')}
         >
           Get Free Quote
         </button>

@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 
-const CalculatorPage = ({ onNavigate }) => {
+import { useNavigate } from 'react-router-dom'
+
+const CalculatorPage = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     scope: 'interior',
@@ -99,7 +102,7 @@ const CalculatorPage = ({ onNavigate }) => {
               </div>
               <div className="pt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <button 
-                  onClick={() => onNavigate('home')}
+                  onClick={() => navigate('/')}
                   className="bg-accent text-white font-bold px-12 py-4 rounded-xl shadow-lg shadow-accent/20 hover:bg-accent/90 transition-all"
                 >
                   Back to Home

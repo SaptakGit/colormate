@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AdditionalServicesModal from './AdditionalServicesModal'
 
-const Services = ({ onNavigate }) => {
+const Services = () => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const revealsRef = useRef([]);
 
@@ -163,7 +165,7 @@ const Services = ({ onNavigate }) => {
       <AdditionalServicesModal 
         isOpen={showModal} 
         onClose={() => setShowModal(false)} 
-        onNavigate={onNavigate} 
+        navigate={navigate} 
       />
       {/* ───── HERO SECTION (OPTIMIZED v2) ───── */}
       <section className="relative pt-20 pb-16 md:pb-24 lg:pb-32 overflow-hidden bg-warm/30">
@@ -188,11 +190,11 @@ const Services = ({ onNavigate }) => {
                 <br className="hidden lg:block"/> for Kolkata
               </h1>
               <p className="text-muted text-base md:text-lg leading-relaxed max-w-lg mb-10 mx-auto lg:mx-0">
-                From luxury apartments to high-rise commercial towers — Color Mate delivers precision painting and weather protection that wows.
+                From luxury apartments to high-rise commercial towers — ColorSure delivers precision painting and weather protection that wows.
               </p>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-14">
                 <button 
-                  onClick={() => onNavigate('contact')}
+                  onClick={() => navigate('/contact')}
                   className="bg-accent text-white px-9 py-4.5 rounded-xl font-bold text-sm tracking-wide transition-all hover:bg-accent/90 hover:-translate-y-1 shadow-lg shadow-accent/25"
                 >
                   Get Free Estimate
@@ -314,7 +316,7 @@ const Services = ({ onNavigate }) => {
                     ))}
                   </ul>
                   <button 
-                    onClick={() => onNavigate('service-details', svc.id)}
+                    onClick={() => navigate(`/service-details/${svc.id}`)}
                     className="w-full py-4 border-2 border-border bg-white rounded-2xl font-bold text-sm text-ink group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300"
                   >
                     View Details
@@ -386,7 +388,7 @@ const Services = ({ onNavigate }) => {
         <div className="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div ref={addToRefs} className="opacity-0 translate-y-6 transition-all duration-700 mb-10">
-              <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">The ColorMate Edge</div>
+              <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">The ColorSure Edge</div>
               <h2 className="font-display text-4xl md:text-5xl font-black text-ink mb-6">Why Kolkata Trusts Us Over Anyone Else</h2>
             </div>
             
@@ -498,7 +500,7 @@ const Services = ({ onNavigate }) => {
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 relative z-10">
               <button 
-                onClick={() => onNavigate('contact')}
+                onClick={() => navigate('/contact')}
                 className="w-full md:w-auto bg-white text-accent px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl hover:scale-105 transition-all"
               >
                 📞 Book Free Assessment

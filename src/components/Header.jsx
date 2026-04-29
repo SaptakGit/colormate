@@ -1,31 +1,40 @@
 import { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
-const Header = ({ activePage, onNavigate }) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'about', label: 'About' },
-    { id: 'gallery', label: 'Gallery' },
-    { id: 'areas', label: 'Areas' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Home', path: '/' },
+    { id: 'services', label: 'Services', path: '/services' },
+    { id: 'about', label: 'About', path: '/about' },
+    { id: 'gallery', label: 'Gallery', path: '/gallery' },
+    { id: 'areas', label: 'Areas', path: '/areas' },
+    { id: 'blog', label: 'Blog', path: '/blog' },
+    { id: 'contact', label: 'Contact', path: '/contact' },
   ];
 
-  const handleNavigate = (id) => {
-    onNavigate(id);
+  const handleNavigate = (path) => {
+    navigate(path);
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const isActive = (path) => location.pathname === path;
+
   return (
     <nav className="sticky top-0 z-[200] bg-cream border-b border-border flex items-center justify-between px-6 md:px-12 h-16.5">
       <div 
-        className="font-display text-xl md:text-2xl font-black text-rust cursor-pointer select-none"
-        onClick={() => handleNavigate('home')}
+        className="cursor-pointer select-none"
+        onClick={() => handleNavigate('/')}
       >
-        Color<span className="text-ink">Mate</span>
+        <img 
+          src="/images/logo/color_sure_logo_cropped.png" 
+          alt="ColorSure Logo" 
+          className="h-8 md:h-10 object-contain"
+        />
       </div>
 
       {/* Desktop Nav */}
@@ -33,10 +42,10 @@ const Header = ({ activePage, onNavigate }) => {
         {navLinks.map((link) => (
           <button
             key={link.id}
-            onClick={() => handleNavigate(link.id)}
+            onClick={() => handleNavigate(link.path)}
             className={`
               bg-transparent border-none font-body text-[13px] px-3 py-2 rounded-md cursor-pointer transition-all font-medium
-              ${activePage === link.id ? 'text-ink bg-rust/8' : 'text-warm-gray hover:text-ink hover:bg-rust/8'}
+              ${isActive(link.path) ? 'text-ink bg-rust/8' : 'text-warm-gray hover:text-ink hover:bg-rust/8'}
             `}
           >
             {link.label}
@@ -55,7 +64,7 @@ const Header = ({ activePage, onNavigate }) => {
 
         <button 
           className="bg-rust text-white border-none font-body text-[13px] font-medium px-4.5 py-2.5 rounded-lg cursor-pointer transition-all hover:bg-rust-light"
-          onClick={() => handleNavigate('contact')}
+          onClick={() => handleNavigate('/contact')}
         >
           Get Free Quote
         </button>
@@ -77,7 +86,7 @@ const Header = ({ activePage, onNavigate }) => {
           {navLinks.map((link) => (
             <button
               key={link.id}
-              onClick={() => handleNavigate(link.id)}
+              onClick={() => handleNavigate(link.path)}
               className="text-left bg-transparent border-none font-body text-base text-ink p-3 rounded-md cursor-pointer transition-all hover:bg-rust/8"
             >
               {link.label}
@@ -93,7 +102,7 @@ const Header = ({ activePage, onNavigate }) => {
           </a>
           <button 
             className="text-left bg-transparent border-none font-body text-base text-rust font-semibold p-3 rounded-md cursor-pointer transition-all hover:bg-rust/8"
-            onClick={() => handleNavigate('contact')}
+            onClick={() => handleNavigate('/contact')}
           >
             Get Free Quote →
           </button>

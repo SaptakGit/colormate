@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import AdditionalServicesModal from './AdditionalServicesModal'
 
-const Home = ({ onNavigate }) => {
+const Home = () => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,7 +18,7 @@ const Home = ({ onNavigate }) => {
       <AdditionalServicesModal 
         isOpen={showModal} 
         onClose={() => setShowModal(false)} 
-        onNavigate={onNavigate} 
+        navigate={navigate} 
       />
       {/* Hero Section - Modern Color-Block Architecture (Berger & Orientbell Style) */}
       <section className="min-h-[90vh] flex flex-col md:flex-row items-stretch relative overflow-hidden bg-white">
@@ -117,7 +119,7 @@ const Home = ({ onNavigate }) => {
             ].map((svc) => (
               <div 
                 key={svc.title} 
-                onClick={() => onNavigate('service-details', svc.id)}
+                onClick={() => navigate(`/service-details/${svc.id}`)}
                 className="bg-white border border-border rounded-[18px] p-7 cursor-pointer transition-all hover:border-rust/35 hover:-translate-y-1.5 hover:shadow-xl group relative overflow-hidden"
               >
                 <div className="w-11.5 h-11.5 rounded-xl bg-rust/10 flex items-center justify-center text-2xl mb-4.5">{svc.icon}</div>
@@ -166,10 +168,10 @@ const Home = ({ onNavigate }) => {
             </p>
           </div>
           <button 
-            onClick={() => onNavigate('calculator')}
+            onClick={() => navigate('/calculator')}
             className="bg-accent text-white font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/20 hover:bg-accent-light hover:scale-105 transition-all flex items-center gap-3 whitespace-nowrap"
           >
-            Open Calculator
+            Get Free Estimate
             <span className="text-xl">📊</span>
           </button>
         </div>
@@ -182,7 +184,7 @@ const Home = ({ onNavigate }) => {
           <h2 className="font-display text-3xl md:text-5xl font-black text-white leading-tight mb-12">Trusted by thousands of Kolkata families</h2>
           <div className="grid md:grid-cols-3 gap-5 mt-12">
             {[
-              { author: 'Priya Chatterjee', area: 'Behala, Kolkata', text: '"Color Mate painted our entire 3BHK in South Kolkata in just 5 days. The texture finish on the living room wall is stunning. Best painters I\'ve hired."' },
+              { author: 'Priya Chatterjee', area: 'Behala, Kolkata', text: '"ColorSure painted our entire 3BHK in South Kolkata in just 5 days. The texture finish on the living room wall is stunning. Best painters I\'ve hired."' },
               { author: 'Arjun Bose', area: 'Ballygunge, Kolkata', text: '"Very professional. They covered all my furniture, cleaned up after and the finish looks amazing. The milestone payment gave me real confidence."' },
               { author: 'Sunil Kumar Das', area: 'Salt Lake, Kolkata', text: '"The exterior painting + waterproofing combo was perfect for our building. Zero leakage this entire monsoon season. The whole colony is impressed."' }
             ].map((t) => (
@@ -205,7 +207,7 @@ const Home = ({ onNavigate }) => {
         </div>
         <button 
           className="bg-white text-rust border-none font-body text-sm font-semibold px-8 py-3.5 rounded-xl cursor-pointer transition-all hover:bg-cream whitespace-nowrap"
-          onClick={() => onNavigate('contact')}
+          onClick={() => navigate('/contact')}
         >
           Book Free Site Visit
         </button>

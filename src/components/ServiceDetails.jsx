@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const ServiceDetails = ({ activeTab: initialTab, onNavigate }) => {
-  const [activeTab, setActiveTab] = useState(initialTab || 'interior');
+const ServiceDetails = () => {
+  const navigate = useNavigate();
+  const { serviceId } = useParams();
+  const [activeTab, setActiveTab] = useState(serviceId || 'interior');
 
   useEffect(() => {
-    setActiveTab(initialTab);
+    setActiveTab(serviceId || 'interior');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [initialTab]);
+  }, [serviceId]);
 
   const showService = (id) => {
     setActiveTab(id);
@@ -46,7 +49,7 @@ const ServiceDetails = ({ activeTab: initialTab, onNavigate }) => {
             Every surface. Every finish.<br /><span className="text-[#f5c842] italic">Done right.</span>
           </h1>
           <p className="text-white/65 text-lg leading-relaxed max-w-xl">
-            From a single bedroom to full residential towers — ColorMate brings certified painters, premium materials, and a 10-point quality checklist to every project in Kolkata.
+            From a single bedroom to full residential towers — ColorSure brings certified painters, premium materials, and a 10-point quality checklist to every project in Kolkata.
           </p>
           
           <div className="flex flex-wrap gap-10 mt-12 pt-10 border-t border-white/10">
@@ -110,10 +113,10 @@ const ServiceDetails = ({ activeTab: initialTab, onNavigate }) => {
                   We transform living rooms, bedrooms, kitchens and bathrooms with precision interior painting. Our certified painters use anti-fungal primers, 3-coat application systems, and low-VOC finishes — the kind of detail your family deserves.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button onClick={() => onNavigate('contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
-                    📞 Book Free Site Visit
-                  </button>
-                  <button onClick={() => onNavigate('gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
+                <button onClick={() => navigate('/contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
+                  📞 Book Free Site Visit
+                </button>
+                <button onClick={() => navigate('/gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
                     See Gallery →
                   </button>
                 </div>
@@ -214,10 +217,10 @@ const ServiceDetails = ({ activeTab: initialTab, onNavigate }) => {
                   Exterior painting in Kolkata is not just about looks — it's about protection. Our scaffolding-grade teams apply weather-resistant, UV-blocking finishes that keep your building safe from heavy rain and intense heat.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button onClick={() => onNavigate('contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
+                  <button onClick={() => navigate('/contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
                     📞 Book Free Site Visit
                   </button>
-                  <button onClick={() => onNavigate('gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
+                  <button onClick={() => navigate('/gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
                     See Gallery →
                   </button>
                 </div>
@@ -318,10 +321,10 @@ const ServiceDetails = ({ activeTab: initialTab, onNavigate }) => {
                   Texture finishes turn a plain painted wall into a design statement. From Venetian plaster to geometric 3D patterns, we bring 100+ designs with Asian Paints certified craftsmen.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button onClick={() => onNavigate('contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
+                  <button onClick={() => navigate('/contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
                     📞 Book Free Consultation
                   </button>
-                  <button onClick={() => onNavigate('gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
+                  <button onClick={() => navigate('/gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
                     View Gallery →
                   </button>
                 </div>
@@ -408,10 +411,10 @@ const ServiceDetails = ({ activeTab: initialTab, onNavigate }) => {
                   Damp walls aren't a painting problem — they're a structural one. We identify the seepage source, treat it with the right system, and then paint.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button onClick={() => onNavigate('contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
+                  <button onClick={() => navigate('/contact')} className="bg-[#e05a2b] text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-[#e05a2b]/20 hover:bg-[#c44e22] hover:-translate-y-1 transition-all">
                     📞 Book Damp Inspection
                   </button>
-                  <button onClick={() => onNavigate('gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
+                  <button onClick={() => navigate('/gallery')} className="text-[#0f1f4b] font-bold border-b-2 border-[#0f1f4b] pb-1 hover:text-[#e05a2b] hover:border-[#e05a2b] transition-all">
                     See Case Studies →
                   </button>
                 </div>
@@ -484,7 +487,7 @@ const ServiceDetails = ({ activeTab: initialTab, onNavigate }) => {
         )}
       </div>
 
-      <FooterBanner onNavigate={onNavigate} activeTab={activeTab} />
+      <FooterBanner navigate={navigate} activeTab={activeTab} />
     </div>
   );
 };
@@ -544,7 +547,7 @@ const MaterialCallout = ({ icon, title, desc }) => (
 const DifferenceSection = ({ items, stats }) => (
   <div className="bg-[#0f1f4b] rounded-[30px] p-10 lg:p-16 mb-24 grid lg:grid-cols-2 gap-16">
     <div>
-      <div className="text-[11px] font-mono tracking-[2px] text-white/40 uppercase mb-3">The ColorMate Difference</div>
+      <div className="text-[11px] font-mono tracking-[2px] text-white/40 uppercase mb-3">The ColorSure Difference</div>
       <h3 className="font-serif text-2xl text-white mb-10">What others skip, we never do.</h3>
       <div className="space-y-5">
         {items.map((item, idx) => (
@@ -599,7 +602,7 @@ const FaqSection = ({ faqs, openFaq, toggleFaq }) => (
   </div>
 );
 
-const FooterBanner = ({ onNavigate, activeTab }) => {
+const FooterBanner = ({ navigate, activeTab }) => {
   const themes = {
     interior: 'bg-gradient-to-r from-[#e05a2b] to-[#c44e22]',
     exterior: 'bg-gradient-to-r from-[#1a2f66] to-[#0f1f4b]',
@@ -614,7 +617,7 @@ const FooterBanner = ({ onNavigate, activeTab }) => {
         <p className="opacity-80 leading-relaxed text-sm">Free site visit · Detailed written quote in 24 hours · No hidden charges. We serve all areas of Kolkata including Behala, Salt Lake, Ballygunge, and New Town.</p>
       </div>
       <div className="flex flex-col items-end gap-3 shrink-0">
-        <button onClick={() => onNavigate('contact')} className="bg-white text-ink font-bold px-10 py-4.5 rounded-xl shadow-2xl hover:bg-[#f5f0e8] transition-all whitespace-nowrap">
+        <button onClick={() => navigate('/contact')} className="bg-white text-ink font-bold px-10 py-4.5 rounded-xl shadow-2xl hover:bg-[#f5f0e8] transition-all whitespace-nowrap">
           📋 Get Free Estimate
         </button>
         <span className="text-[10px] opacity-50 font-bold uppercase tracking-widest">No obligation · Response in 2 hours</span>

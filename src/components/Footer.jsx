@@ -1,6 +1,10 @@
-const Footer = ({ onNavigate }) => {
-  const handleNavigate = (id) => {
-    onNavigate(id);
+import { useNavigate } from 'react-router-dom'
+
+const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (path) => {
+    navigate(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -8,8 +12,15 @@ const Footer = ({ onNavigate }) => {
     <footer className="bg-ink p-12 md:p-16 text-white/60">
       <div className="max-w-7xl mx-auto grid md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-12">
         <div>
-          <div className="font-display text-2xl font-black text-white mb-3.5">
-            Color<span className="text-rust">Mate</span>
+          <div 
+            className="mb-4 cursor-pointer select-none"
+            onClick={() => handleNavigate('/')}
+          >
+            <img 
+              src="/images/logo/color_sure_logo_white_no_bg_cropped.png" 
+              alt="ColorSure Logo" 
+              className="h-10 object-contain"
+            />
           </div>
           <p className="text-[13px] leading-relaxed max-w-xs">
             Professional painting services across Kolkata — interior, exterior, textures & waterproofing. Trusted by 2,400+ families since 2010.
@@ -23,7 +34,7 @@ const Footer = ({ onNavigate }) => {
               <li 
                 key={service}
                 className="text-[13.5px] cursor-pointer transition-colors hover:text-white"
-                onClick={() => handleNavigate('services')}
+                onClick={() => handleNavigate('/services')}
               >
                 {service}
               </li>
@@ -34,13 +45,18 @@ const Footer = ({ onNavigate }) => {
         <div>
           <div className="text-[11px] font-semibold tracking-[2.5px] uppercase text-white/35 mb-4.5">Company</div>
           <ul className="list-none flex flex-col gap-2.5 p-0">
-            {['About Us', 'Gallery', 'Blog', 'Contact'].map((item) => (
+            {[
+              { label: 'About Us', path: '/about' },
+              { label: 'Gallery', path: '/gallery' },
+              { label: 'Blog', path: '/blog' },
+              { label: 'Contact', path: '/contact' }
+            ].map((item) => (
               <li 
-                key={item}
+                key={item.label}
                 className="text-[13.5px] cursor-pointer transition-colors hover:text-white"
-                onClick={() => handleNavigate(item.toLowerCase().replace(' ', ''))}
+                onClick={() => handleNavigate(item.path)}
               >
-                {item}
+                {item.label}
               </li>
             ))}
           </ul>
@@ -53,7 +69,7 @@ const Footer = ({ onNavigate }) => {
               <li 
                 key={area}
                 className="text-[13.5px] cursor-pointer transition-colors hover:text-white"
-                onClick={() => handleNavigate('areas')}
+                onClick={() => handleNavigate('/areas')}
               >
                 {area}
               </li>
@@ -63,8 +79,8 @@ const Footer = ({ onNavigate }) => {
       </div>
 
       <div className="max-w-7xl mx-auto pt-6 border-t border-white/10 flex flex-wrap justify-between gap-2 text-xs text-white/30">
-        <span>© 2025 ColorMate. All rights reserved. Kolkata, West Bengal.</span>
-        <span>hello@colormate.in</span>
+        <span>© 2025 ColorSure. All rights reserved. Kolkata, West Bengal.</span>
+        <span>hello@colorsure.in</span>
       </div>
     </footer>
   )

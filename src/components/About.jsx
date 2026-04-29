@@ -1,4 +1,7 @@
-const About = ({ onNavigate }) => {
+import { useNavigate } from 'react-router-dom'
+
+const About = () => {
+  const navigate = useNavigate();
   return (
     <div className="page-anim">
       {/* Story Section */}
@@ -8,7 +11,7 @@ const About = ({ onNavigate }) => {
             <div className="text-[11px] tracking-[3px] uppercase text-rust font-medium mb-3.5">Our Story</div>
             <h1 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-5">14 years of painting Kolkata beautiful</h1>
             <p className="text-base text-warm-gray leading-loose mb-4.5">
-              Color Mate was founded in 2010 by Rajesh Mondal, a certified painter who believed that every home in Kolkata — from a one-room flat in Howrah to a duplex in New Town — deserves a professional, trustworthy painting service.
+              ColorSure was founded in 2010 by Rajesh Mondal, a certified painter who believed that every home in Kolkata — from a one-room flat in Howrah to a duplex in New Town — deserves a professional, trustworthy painting service.
             </p>
             <p className="text-base text-warm-gray leading-loose mb-9">
               Today we are a team of 35 trained painters, 4 project managers and 2 interior consultants who have completed over 2,400 projects across Kolkata and its suburbs.
@@ -155,7 +158,7 @@ const About = ({ onNavigate }) => {
         </div>
         <button 
           className="bg-white text-rust border-none font-body text-sm font-semibold px-8 py-3.5 rounded-xl cursor-pointer transition-all hover:bg-cream whitespace-nowrap"
-          onClick={() => onNavigate('contact')}
+          onClick={() => navigate('/contact')}
         >
           Book Free Site Visit
         </button>

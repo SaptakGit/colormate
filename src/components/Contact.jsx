@@ -74,7 +74,7 @@ const Contact = () => {
               <div className="w-11 h-11 bg-cream rounded-xl flex items-center justify-center text-xl border border-border">📧</div>
               <div>
                 <div className="text-[11px] font-semibold text-warm-gray uppercase tracking-widest mb-1">Email us</div>
-                <div className="text-[15px] font-bold text-ink">hello@colormate.in</div>
+                <div className="text-[15px] font-bold text-ink">hello@colorsure.in</div>
               </div>
             </div>
             <div className="flex gap-4.5">

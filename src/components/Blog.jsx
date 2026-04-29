@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 const blogPosts = [
   {
     id: 'choosing-colors',
@@ -30,7 +32,8 @@ const blogPosts = [
   }
 ];
 
-const Blog = ({ onNavigate }) => {
+const Blog = () => {
+  const navigate = useNavigate();
   const [selectedPostId, setSelectedPostId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
@@ -57,7 +60,7 @@ const Blog = ({ onNavigate }) => {
         <article className="max-w-3xl mx-auto px-6 pt-12 pb-24">
           <div className="text-[11px] tracking-[3px] uppercase text-rust font-medium mb-3.5">{post.category}</div>
           <h1 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-5">{post.title}</h1>
-          <div className="text-[12px] text-warm-gray mb-9">Published on {post.date} by Color Mate Editorial</div>
+          <div className="text-[12px] text-warm-gray mb-9">Published on {post.date} by ColorSure Editorial</div>
           <div className="h-64 rounded-3xl bg-cream flex items-center justify-center text-7xl mb-12 border border-border">
             {post.image}
           </div>
@@ -68,7 +71,7 @@ const Blog = ({ onNavigate }) => {
             <p className="text-sm text-warm-gray mb-5.5">Get expert advice tailored to your home.</p>
             <button 
               className="bg-rust text-white border-none font-body text-sm font-medium px-8 py-3 rounded-xl cursor-pointer transition-all hover:bg-rust-light"
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
             >
               Book Free Site Visit
             </button>

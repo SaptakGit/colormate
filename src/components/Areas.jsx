@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const areasData = [
   { 
@@ -37,7 +38,8 @@ const areasData = [
   }
 ];
 
-const Areas = ({ onNavigate }) => {
+const Areas = () => {
+  const navigate = useNavigate();
   const [selectedArea, setSelectedArea] = useState(null);
 
   if (selectedArea) {
@@ -84,7 +86,7 @@ const Areas = ({ onNavigate }) => {
                   <div 
                     key={s} 
                     className="bg-white border border-border rounded-xl p-3.5 px-4 text-[13px] font-medium text-ink cursor-pointer transition-all hover:border-rust hover:text-rust flex items-center gap-2"
-                    onClick={() => onNavigate('services')}
+                    onClick={() => navigate('/services')}
                   >
                     {icon} {s}
                   </div>
@@ -99,7 +101,7 @@ const Areas = ({ onNavigate }) => {
               <p className="text-[13px] text-white/75 mb-4.5 leading-relaxed">Free site visit within 24 hours. No commitment required.</p>
               <button 
                 className="w-full bg-white text-rust border-none font-body text-[13px] font-bold py-3 rounded-lg cursor-pointer shadow-md"
-                onClick={() => onNavigate('contact')}
+                onClick={() => navigate('/contact')}
               >
                 Book Free Site Visit
               </button>
@@ -136,11 +138,11 @@ const Areas = ({ onNavigate }) => {
             <div className="text-[11px] tracking-[3px] uppercase text-rust font-medium mb-3.5">Service Areas</div>
             <h1 className="font-display text-4xl md:text-6xl font-black text-ink leading-tight mb-5">We paint homes across every corner of Kolkata</h1>
             <p className="text-warm-gray leading-loose max-w-lg mb-8">
-              Color Mate serves 8 major areas across Kolkata. Each neighbourhood has its own building types and paint challenges — and we know exactly what each one needs.
+              ColorSure serves 8 major areas across Kolkata. Each neighbourhood has its own building types and paint challenges — and we know exactly what each one needs.
             </p>
             <button 
               className="bg-rust text-white border-none font-body text-sm font-medium px-7 py-3 rounded-xl cursor-pointer transition-all hover:bg-rust-light shadow-lg shadow-rust/15"
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
             >
               Get a Quote in Your Area
             </button>
@@ -189,7 +191,7 @@ const Areas = ({ onNavigate }) => {
           </div>
           <button 
             className="bg-white text-rust border-none font-body text-sm font-semibold px-8 py-3.5 rounded-xl cursor-pointer transition-all hover:bg-cream"
-            onClick={() => onNavigate('contact')}
+            onClick={() => navigate('/contact')}
           >
             Contact Us
           </button>

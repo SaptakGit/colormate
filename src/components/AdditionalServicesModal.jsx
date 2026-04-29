@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const AdditionalServicesModal = ({ isOpen, onClose, onNavigate }) => {
+const AdditionalServicesModal = ({ isOpen, onClose, navigate }) => {
   if (!isOpen) return null;
 
   return (
@@ -40,7 +40,7 @@ const AdditionalServicesModal = ({ isOpen, onClose, onNavigate }) => {
             <div className="space-y-6 md:space-y-8">
               <div>
                 <h2 className="font-display text-2xl md:text-3xl font-black text-ink mb-3 md:mb-4">Complete Home Solutions</h2>
-                <p className="text-[13px] md:text-sm text-warm-gray leading-relaxed mb-4 md:mb-6">Explore our newly launched premium services designed to transform your entire living space with the same expertise and trust as ColorMate.</p>
+                <p className="text-[13px] md:text-sm text-warm-gray leading-relaxed mb-4 md:mb-6">Explore our newly launched premium services designed to transform your entire living space with the same expertise and trust as ColorSure.</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
@@ -68,7 +68,7 @@ const AdditionalServicesModal = ({ isOpen, onClose, onNavigate }) => {
 
               <div className="pt-4 md:pt-6 flex flex-col sm:flex-row gap-4 items-center">
                 <button 
-                  onClick={() => { onNavigate('contact'); onClose(); }}
+                  onClick={() => { navigate('/contact'); onClose(); }}
                   className="w-full sm:w-auto bg-rust text-white font-bold px-10 py-4 rounded-xl shadow-lg shadow-rust/20 hover:bg-rust-light hover:-translate-y-1 transition-all text-sm md:text-base"
                 >
                   Enquire Now

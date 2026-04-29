@@ -1,6 +1,6 @@
-# ColorMate – Professional Painting Services in Kolkata
+# ColorSure – Professional Painting Services in Kolkata
 
-A modern, premium React-based website for ColorMate, specializing in professional interior, exterior, texture, and waterproofing services in Kolkata.
+A modern, premium React-based website for ColorSure, specializing in professional interior, exterior, texture, and waterproofing services in Kolkata.
 
 ## 🚀 Tech Stack
 
@@ -23,8 +23,8 @@ A modern, premium React-based website for ColorMate, specializing in professiona
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/SaptakGit/colormate.git
-   cd colormate
+   git clone https://github.com/SaptakGit/colorsure.git
+   cd colorsure
    ```
 
 2. **Install dependencies**:
@@ -51,4 +51,4 @@ A modern, premium React-based website for ColorMate, specializing in professiona
 
 ---
 
-Built for **ColorMate** – *Painting Kolkata Beautiful Since 2010.*
+Built for **ColorSure** – *Painting Kolkata Beautiful Since 2010.*
