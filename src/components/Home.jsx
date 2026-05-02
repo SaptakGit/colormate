@@ -4,7 +4,12 @@ import AdditionalServicesModal from './AdditionalServicesModal'
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
   const navigate = useNavigate();
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -37,7 +42,7 @@ const Home = () => {
               <span className="text-[#FFD400] italic underline decoration-white/20 underline-offset-8">confidence.</span>
             </h1>
             <p className="text-lg leading-relaxed text-white/70 max-w-sm mb-12 font-medium">
-              Professional interior, exterior, texture and waterproofing. Experience the gold standard of painting with Kolkata's certified masters.
+              Looking for reliable house painters in Kolkata? We handle interior, exterior, texture and waterproofing, with trained painters, no subcontractors and no inflated quotes.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-12 border-t border-white/10">
@@ -108,14 +113,14 @@ const Home = () => {
           <div className="text-[11px] tracking-[3px] uppercase text-rust font-medium mb-3.5">What we do</div>
           <h2 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-4">Every painting service, done right</h2>
           <p className="text-warm-gray leading-loose max-w-lg mb-12">
-            From a single bedroom to a full residential tower — we bring expertise, certified painters and premium materials to every project.
+            From a one-room flat to a full housing society, we handle every surface with the same care. Serving Kolkata, Howrah, Salt Lake, Ballygunge, Behala, New Town, Tollygunge,and other areas.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 mt-12">
             {[
-              { id: 'interior', icon: '🎨', title: 'Interior Painting', desc: 'Transform your living spaces with Asian Paints Royale, Berger Silk and Dulux Velvet Touch.' },
-              { id: 'exterior', icon: '🏠', title: 'Exterior Painting', desc: 'Weather-shield and UV-resistant paints to protect your facade from heavy rain and sun damage.' },
-              { id: 'texture', icon: '✨', title: 'Texture Finish', desc: 'Sand texture, Venetian plaster, 3D geometric and metallic finishes for walls that stand out.' },
-              { id: 'waterproofing', icon: '💧', title: 'Waterproofing', desc: 'Permanently seal terraces, bathrooms and walls using Dr. Fixit and BASF systems.' }
+              { id: 'interior', icon: '🎨', title: 'Interior Painting', desc: 'Living rooms, bedrooms, kitchens and ceilings; wall putty, anti-fungal primer and 3-coat emulsion finish. Using Asian Paints, Berger, Dulux, Nerolac, and more.' },
+              { id: 'exterior', icon: '🏠', title: 'Exterior Painting', desc: "Facade repaints built to survive Kolkata's monsoon. Surface prep, crack filling, scaffolding setup and WeatherCoat emulsion. 1-year warranty on every job." },
+              { id: 'texture', icon: '✨', title: 'Texture Finish', desc: 'Sand finish, Royale Play, Venetian plaster and 3D geometric, 100+ designs. Applied by Asian Paints certified craftsmen.' },
+              { id: 'waterproofing', icon: '💧', title: 'Waterproofing', desc: 'We find the source before we apply anything. Terrace, bathroom slab, external walls and water tanks. Manufacturer-backed warranty on all waterproofing products applied on all jobs.' }
             ].map((svc) => (
               <div 
                 key={svc.title} 
@@ -138,13 +143,13 @@ const Home = () => {
           <div className="text-[11px] tracking-[3px] uppercase text-rust font-medium mb-3.5">How it works</div>
           <h2 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-4">Simple, transparent process</h2>
           <p className="text-warm-gray leading-loose md:max-w-lg mb-12 mx-auto md:mx-0">
-            No surprises, no hidden costs. Just professional painting done right, every time.
+            No fine print, no surprise charges. Just professional house painting done the right way, every single time.
           </p>
           <div className="grid md:grid-cols-3 gap-5.5 mt-12">
             {[
-              { num: '01', title: 'Free site visit', desc: 'Our project manager visits your home, assesses wall conditions and measures the area — completely free.' },
-              { num: '02', title: 'Detailed quote within 24h', desc: 'You receive an itemized quote with material costs, labour, timeline and milestone payment schedule.' },
-              { num: '03', title: 'We get to work', desc: 'Our trained painters arrive on time, protect your furniture, and deliver a flawless finish on schedule.' }
+              { num: '01', title: 'Free site visit', desc: 'Our project manager visits your home, checks wall condition, measures the area and helps you choose colours, completely free, zero commitment.' },
+              { num: '02', title: 'Detailed quote within 24h', desc: 'You get an itemised written quote covering material grade, labour cost, timeline and payment schedule. Nothing added later without your approval.' },
+              { num: '03', title: 'We get to work', desc: 'Our certified in-house painters show up on time, cover your furniture, follow the 8-step process and hand over a clean home, on the date we promised.' }
             ].map((step) => (
               <div key={step.title} className="bg-white p-7.5 rounded-2xl border border-border text-left">
                 <div className="font-display text-5xl font-black text-rust/10 leading-none mb-2.5">{step.num}</div>
@@ -162,16 +167,16 @@ const Home = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 border border-border bg-white p-12 md:p-20 rounded-[3rem] shadow-2xl shadow-accent/5">
           <div className="max-w-xl text-center md:text-left">
             <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">Cost Estimator</div>
-            <h2 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-6">Want to know exactly what your project will cost?</h2>
+            <h3 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-6">Want to know exactly what your project will cost?</h3>
             <p className="text-warm-gray leading-loose mb-0">
-              Our professional painting cost calculator gives you a detailed breakdown based on carpet area, paint quality, and surface condition.
+              Interior painting starts from ₹12/sqft, exterior from ₹16/sqft. Use our calculator to get a full breakdown by carpet area, paint grade and surface condition.
             </p>
           </div>
           <button 
             onClick={() => navigate('/calculator')}
             className="bg-accent text-white font-bold px-10 py-5 rounded-2xl shadow-xl shadow-accent/20 hover:bg-accent-light hover:scale-105 transition-all flex items-center gap-3 whitespace-nowrap"
           >
-            Get Free Estimate
+            Get Your Free Estimate
             <span className="text-xl">📊</span>
           </button>
         </div>
@@ -180,15 +185,43 @@ const Home = () => {
       {/* Testimonials */}
       <section className="bg-ink py-24 px-6 md:px-12 whitespace-normal overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="text-[11px] tracking-[3px] uppercase text-gold font-medium mb-3.5">What clients say</div>
-          <h2 className="font-display text-3xl md:text-5xl font-black text-white leading-tight mb-12">Trusted by thousands of Kolkata families</h2>
-          <div className="grid md:grid-cols-3 gap-5 mt-12">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <div className="text-[11px] tracking-[3px] uppercase text-gold font-medium mb-3.5">What clients say</div>
+              <h2 className="font-display text-3xl md:text-5xl font-black text-white leading-tight">Trusted by thousands of Kolkata families</h2>
+            </div>
+            <div className="hidden md:flex gap-3">
+              <button 
+                onClick={() => document.getElementById('testimonial-scroll').scrollBy({ left: -400, behavior: 'smooth' })}
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all cursor-pointer"
+              >
+                ←
+              </button>
+              <button 
+                onClick={() => document.getElementById('testimonial-scroll').scrollBy({ left: 400, behavior: 'smooth' })}
+                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all cursor-pointer"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div 
+            id="testimonial-scroll"
+            className="flex gap-5 overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-8 -mx-6 px-6 md:mx-0 md:px-0"
+          >
             {[
-              { author: 'Priya Chatterjee', area: 'Behala, Kolkata', text: '"ColorSure painted our entire 3BHK in South Kolkata in just 5 days. The texture finish on the living room wall is stunning. Best painters I\'ve hired."' },
-              { author: 'Arjun Bose', area: 'Ballygunge, Kolkata', text: '"Very professional. They covered all my furniture, cleaned up after and the finish looks amazing. The milestone payment gave me real confidence."' },
-              { author: 'Sunil Kumar Das', area: 'Salt Lake, Kolkata', text: '"The exterior painting + waterproofing combo was perfect for our building. Zero leakage this entire monsoon season. The whole colony is impressed."' }
+              { author: 'Debashish Roy', area: 'Salt Lake, Kolkata', text: '"Booked ColourSure for our 3BHK repaint in Salt Lake. The team arrived on time, covered every piece of furniture and finished in 4 days. The putty work alone was better than what two other painters had quoted."' },
+              { author: 'Anisha Sen', area: 'Behala, Kolkata', text: '"Our Behala flat had serious damp patches, three painters before ColourSure just painted over them. These guys fixed the source, waterproofed the wall and then painted. It\'s been 14 months and not a single patch."' },
+              { author: 'Rajat Paul', area: 'New Town, Kolkata', text: '"Got Royale Play texture done in the living room and regular emulsion in the bedrooms. They put up a sample patch first, which I really appreciated. Clean finish, no mess left behind."' },
+              { author: 'Sudipta Chakraborty', area: 'Thakurpukur, Kolkata', text: '"Shifted into our flat after ColourSure finished it. 3BHK done in 4 days, zero smell, zero mess. Walls look better than the day the building was built."' },
+              { author: 'Amitava Bose', area: 'Dum Dum, Kolkata', text: '"Three painters quoted us. Two gave verbal numbers, one never called back. ColourSure sent a written quote the next morning. Hired them on the spot. Work was exactly what they promised."' },
+              { author: 'Rekha Nair', area: 'Baranagar, Kolkata', text: '"Two contractors painted over our leaking terrace. Problem came back both times. ColourSure found the actual source, fixed it properly and painted after it cured. First monsoon since, completely dry."' }
             ].map((t) => (
-              <div key={t.author} className="bg-white/5 border border-white/10 rounded-[18px] p-7.5">
+              <div 
+                key={t.author} 
+                className="min-w-[320px] md:min-w-[400px] bg-white/5 border border-white/10 rounded-[18px] p-7.5 snap-center"
+              >
                 <div className="text-gold text-base mb-3.5">★★★★★</div>
                 <p className="text-sm text-white/80 leading-loose mb-4.5 italic">{t.text}</p>
                 <div className="text-[13px] text-white font-medium">{t.author}</div>
@@ -202,8 +235,8 @@ const Home = () => {
       {/* CTA Section */}
       <section className="bg-rust py-16 px-6 md:px-12 flex flex-wrap items-center justify-between gap-10">
         <div className="max-w-xl">
-          <h2 className="font-display text-3xl font-black text-white leading-tight mb-1.5">Ready to transform your home?</h2>
-          <p className="text-sm text-white/80">Free site visit & quote within 24 hours. No commitment required.</p>
+          <h2 className="font-display text-3xl font-black text-white leading-tight mb-1.5">Ready to get started?</h2>
+          <p className="text-sm text-white/80">Kolkata's most trusted professional painting services, free site visit and written quote within 24 hours.</p>
         </div>
         <button 
           className="bg-white text-rust border-none font-body text-sm font-semibold px-8 py-3.5 rounded-xl cursor-pointer transition-all hover:bg-cream whitespace-nowrap"
@@ -211,6 +244,59 @@ const Home = () => {
         >
           Book Free Site Visit
         </button>
+      </section>
+
+
+      {/* FAQ Section */}
+      <section className="bg-cream py-24 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-[11px] tracking-[3px] uppercase text-rust font-medium mb-3.5 text-center md:text-left"></div>
+          <h2 className="font-display text-3xl md:text-5xl font-black text-ink leading-tight mb-12 text-center md:text-left">Common questions from Kolkata homeowners</h2>
+          
+          <div className="space-y-4">
+            {[
+              { 
+                q: "How much does house painting cost in Kolkata?", 
+                a: "Interior painting starts from ₹12/sqft and exterior from ₹16/sqft. Final cost depends on paint grade, wall condition and carpet area. Book a free site visit for an exact written quote." 
+              },
+              { 
+                q: "How long does house painting take in Kolkata?", 
+                a: "A 2BHK interior repaint takes 3-4 days, a 3BHK takes 4-5 days with a team of four. This covers putty, drying, sanding, primer and two top coats, we never skip drying time between coats." 
+              },
+              { 
+                q: "Which paint brand is best for Kolkata homes?", 
+                a: "For interiors, Asian Paints Royale or Berger Silk, washable and mold-resistant, essential given Kolkata's humidity. For exteriors, WeatherCoat grade emulsion is the minimum. Standard exterior emulsion rarely survives more than two monsoons here." 
+              },
+              { 
+                q: "Can I stay home while painting is going on?", 
+                a: "Yes. We work room by room, sealing off areas with plastic sheeting and using low-VOC paints to keep odour minimal. For newborns or elderly family members, we suggest vacating individual rooms for 24 hours after each coat." 
+              },
+              { 
+                q: "What warranty do you provide on waterproofing?", 
+                a: "The warranty comes directly from Dr. Fixit, 7 years on Roofseal Classic, up to 10 years on Pidifin 2K, depending on the product used for your specific problem. We apply every product to exact manufacturer specifications so your warranty stays valid, the certificate is issued by Dr. Fixit, not us." 
+              }
+            ].map((faq, idx) => (
+              <div key={idx} className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === idx ? 'border-rust shadow-lg shadow-rust/5' : 'border-border'}`}>
+                <button 
+                  onClick={() => toggleFaq(idx)} 
+                  className="w-full flex items-center justify-between p-6 md:p-8 text-left group"
+                >
+                  <span className={`font-display text-lg font-bold transition-colors ${openFaq === idx ? 'text-rust' : 'text-ink group-hover:text-rust'}`}>
+                    {faq.q}
+                  </span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${openFaq === idx ? 'bg-rust text-white rotate-45' : 'bg-rust/5 text-rust'}`}>
+                    <span className="text-xl font-light">+</span>
+                  </div>
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${openFaq === idx ? 'max-h-96' : 'max-h-0'}`}>
+                  <div className="px-6 md:px-8 pb-8 text-[15px] text-warm-gray leading-relaxed border-t border-border pt-6">
+                    {faq.a}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   )
