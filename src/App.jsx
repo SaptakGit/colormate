@@ -10,6 +10,9 @@ import Blog from './components/Blog'
 import Contact from './components/Contact'
 import CalculatorPage from './components/CalculatorPage'
 import ServiceDetails from './components/ServiceDetails'
+import Disclaimer from './components/Disclaimer'
+import Terms from './components/Terms'
+import Privacy from './components/Privacy'
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
             <Route path="/areas" element={<Areas />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
         <Footer />

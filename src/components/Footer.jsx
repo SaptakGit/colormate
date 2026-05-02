@@ -23,7 +23,7 @@ const Footer = () => {
             />
           </div>
           <p className="text-[13px] leading-relaxed max-w-xs">
-            Professional painting services across Kolkata — interior, exterior, textures & waterproofing. Trusted by 2,400+ families since 2010.
+            ColourSure is a professional painting company in Kolkata offering interior, exterior, textures and waterproofing services, trusted by 100+ families.
           </p>
         </div>
 
@@ -63,24 +63,22 @@ const Footer = () => {
         </div>
 
         <div>
-          <div className="text-[11px] font-semibold tracking-[2.5px] uppercase text-white/35 mb-4.5">Areas Served</div>
-          <ul className="list-none flex flex-col gap-2.5 p-0">
-            {['Behala', 'Salt Lake', 'Ballygunge', 'Howrah', 'New Town', 'Tollygunge'].map((area) => (
-              <li 
-                key={area}
-                className="text-[13.5px] cursor-pointer transition-colors hover:text-white"
-                onClick={() => handleNavigate('/areas')}
-              >
-                {area}
-              </li>
-            ))}
-          </ul>
+          <div className="text-[11px] font-semibold tracking-[2.5px] uppercase text-white/35 mb-4.5">Office Address</div>
+          <address className="not-italic text-[13.5px] leading-relaxed">
+            G/86 755/3 SHKB Sarani<br />
+            Jawpur Road SDDM:10,<br />
+            Kolkata 700074
+          </address>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-6 border-t border-white/10 flex flex-wrap justify-between gap-2 text-xs text-white/30">
-        <span>© 2025 ColorSure. All rights reserved. Kolkata, West Bengal.</span>
-        <span>hello@colorsure.in</span>
+      <div className="max-w-7xl mx-auto pt-6 border-t border-white/10 flex flex-wrap justify-between gap-6 text-xs text-white/30">
+        <span>© 2026 ColorSure. All rights reserved. Kolkata, West Bengal.</span>
+        <div className="flex gap-6">
+          <span className="cursor-pointer hover:text-white transition-colors" onClick={() => handleNavigate('/disclaimer')}>Disclaimer</span>
+          <span className="cursor-pointer hover:text-white transition-colors" onClick={() => handleNavigate('/terms')}>Terms & Conditions</span>
+          <span className="cursor-pointer hover:text-white transition-colors" onClick={() => handleNavigate('/privacy')}>Privacy Policy</span>
+        </div>
       </div>
     </footer>
   )
