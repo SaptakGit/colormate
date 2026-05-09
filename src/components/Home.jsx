@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AdditionalServicesModal from './AdditionalServicesModal'
+import interiorImg from '../assets/images/interior.png'
+import exteriorImg from '../assets/images/exterior.png'
+import textureImg from '../assets/images/texture.png'
+import waterproofingImg from '../assets/images/waterproofing.png'
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,6 +21,41 @@ const Home = () => {
     }, 1200); // Trigger every time the page is opened
     return () => clearTimeout(timer);
   }, []);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    { 
+      img: interiorImg, 
+      title: 'Luxury Interior Finishes', 
+      desc: 'Transform your living spaces with premium emulsion and flawless textures.',
+      badge: 'INTERIOR'
+    },
+    { 
+      img: exteriorImg, 
+      title: 'Durable Exterior Protection', 
+      desc: "Weather-resistant coatings built to survive Kolkata's harsh monsoons.",
+      badge: 'EXTERIOR'
+    },
+    { 
+      img: textureImg, 
+      title: 'Artistic Texture Designs', 
+      desc: 'Add depth and character to your walls with 100+ designer patterns.',
+      badge: 'TEXTURE'
+    },
+    { 
+      img: waterproofingImg, 
+      title: 'Expert Waterproofing', 
+      desc: 'Comprehensive seepage solutions with manufacturer-backed warranties.',
+      badge: 'WATERPROOFING'
+    }
+  ];
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(slideInterval);
+  }, [slides.length]);
 
   return (
     <div className="page-anim min-h-screen">
@@ -157,6 +196,85 @@ const Home = () => {
                 <p className="text-[13px] text-warm-gray leading-relaxed">{step.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Modern Showcase Slider */}
+      <section className="bg-white py-24 px-6 md:px-12 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative group">
+            {/* Main Slider Container */}
+            <div className="relative h-[400px] md:h-[600px] w-full rounded-[40px] overflow-hidden shadow-2xl shadow-ink/10">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-110 pointer-events-none'
+                  }`}
+                >
+                  {/* Image Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent z-10"></div>
+                  
+                  {/* Image */}
+                  <img 
+                    src={slide.img} 
+                    alt={slide.title}
+                    className="w-full h-full object-cover"
+                  />
+
+                  {/* Caption Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-10 md:p-16 z-20 transform transition-all duration-700 delay-300">
+                    <div className={`transition-all duration-700 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                      <div className="inline-block px-4 py-1.5 rounded-full bg-[#FFD400] text-[#0A034F] text-[10px] font-black tracking-[2px] mb-4">
+                        {slide.badge}
+                      </div>
+                      <h3 className="font-display text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
+                        {slide.title}
+                      </h3>
+                      <p className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed">
+                        {slide.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Navigation Arrows */}
+              <button 
+                onClick={() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+                className="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#FFD400] hover:text-[#0A034F] transition-all opacity-0 group-hover:opacity-100"
+              >
+                ←
+              </button>
+              <button 
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+                className="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#FFD400] hover:text-[#0A034F] transition-all opacity-0 group-hover:opacity-100"
+              >
+                →
+              </button>
+
+              {/* Progress Bar (Bottom) */}
+              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/10 z-30">
+                <div 
+                  className="h-full bg-[#FFD400] transition-all duration-500 ease-linear"
+                  style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-3 mt-8">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? 'w-10 bg-[#0A034F]' : 'w-4 bg-[#0A034F]/20'
+                  }`}
+                ></button>
+              ))}
+            </div>
           </div>
         </div>
       </section>

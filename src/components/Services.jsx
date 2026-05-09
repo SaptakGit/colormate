@@ -8,6 +8,7 @@ const Services = () => {
   const revealsRef = useRef([]);
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [openFaq, setOpenFaq] = useState(null);
   const sliderImages = [
     '/images/slider/slider1.png',
     '/images/slider/slider2.png',
@@ -59,14 +60,13 @@ const Services = () => {
       title: 'Interior Painting',
       icon: '🎨',
       bg: 'from-[#fde8d8] to-[#f5c9a8]',
-      price: 'From Rs12/sq ft',
-      desc: 'Transform your living spaces using Asian Paints Royale, Berger Silk and Dulux Velvet Touch. Flawless, lasting finishes on every surface in your Kolkata home.',
+      price: 'From ₹12/sq ft',
+      desc: "Transform your living rooms, bedrooms, kitchens and bathrooms with professional home interior painting. We use anti-fungal primer as standard, essential in Kolkata's humidity — followed by wall putty, machine sanding and 2-3 coats of premium emulsion from Asian Paints, Berger, Dulux or Nerolac.",
       features: [
         'Living rooms, bedrooms, kitchen & bathrooms',
-        'Ceiling painting with anti-fungal primer',
-        'Feature walls & accent finishes',
-        'Putty + primer + 2-coat finish as standard',
-        'Furniture masking & post-work cleanup'
+        'Anti-fungal primer standard on every wall',
+        '2-coat wall putty + machine sanding',
+        'Furniture masking & post-job cleanup included'
       ]
     },
     {
@@ -74,14 +74,14 @@ const Services = () => {
       title: 'Exterior Painting',
       icon: '🏠',
       bg: 'from-[#dce8f5] to-[#b8d4ed]',
-      price: 'From Rs18/sq ft',
-      desc: "Kolkata's climate demands tough exterior protection. We use weather-shield and UV-resistant paints to protect your facade from heavy rain and sun damage.",
+      price: 'From ₹16/sq ft',
+      desc: "Kolkata's monsoon is unforgiving, standard emulsion fails within two seasons. Our exterior painting service uses WeatherCoat grade emulsion, elastomeric crack-bridging primer with teflon coated pain, and proper pipe scaffolding on every multi-floor job. Built to last 5-7 years.",
       features: [
-        'Weather-resistant exterior emulsions',
-        'Surface prep, crack-filling & sealing',
-        'Scaffolding setup for high-rise buildings',
-        'Residential & commercial properties',
-        '2-year exterior painting warranty'
+        'Facade assessment & crack repair before any painting',
+        'Power washing with jet speed to remove algae, mold and old flaking paint',
+        'Elastomeric primer for crack bridging',
+        'WeatherCoat grade emulsion, minimum standard',
+        '1-year written workmanship warranty on all exterior jobs'
       ]
     },
     {
@@ -89,14 +89,12 @@ const Services = () => {
       title: 'Texture Finish',
       icon: '✨',
       bg: 'from-[#f0e8f5] to-[#dcc8ec]',
-      price: 'From Rs35/sq ft',
-      desc: 'Add depth and luxury to your walls with our decorative texture finishes. From rustic sand to modern 3D panels — we create walls that become centerpieces.',
+      price: 'From ₹120/sq ft',
+      desc: 'A texture finish turns a plain wall into a design statement. We offer 100+ designs; sand finish, Royale Play, Venetian plaster and 3D geometric, with a sample patch on your actual wall before you commit.',
       features: [
-        'Sand texture, stucco & rustic plaster',
-        'Venetian plaster & marble effect',
-        '3D geometric & panel textures',
-        'Metallic & shimmer finishes',
-        'Feature wall design consultation'
+        '100+ designs including Royale Play & Venetian plaster',
+        'Feature wall or full-room, both available',
+        'Colour consultation included at no charge'
       ]
     },
     {
@@ -104,14 +102,15 @@ const Services = () => {
       title: 'Waterproofing',
       icon: '💧',
       bg: 'from-[#d8f0e8] to-[#a8dcc8]',
-      price: 'From Rs45/sq ft',
-      desc: "Protect your home from Kolkata's monsoons using Dr. Fixit and BASF systems. Permanently seal terraces, bathrooms, and basements.",
+      price: 'From ₹15/Coat/sq ft',
+      desc: "Painting over a damp wall without treating the source is the single biggest mistake Kolkata homeowners make. We identify the seepage point first; terrace, bathroom slab, external wall or water tank, then apply the right Dr. Fixit Fosroc, or other standard system before a single drop of paint goes on.",
       features: [
-        'Terrace & roof waterproofing',
-        'Bathroom & wet area treatment',
-        'Basement & underground wall sealing',
-        'Crack injection & structural repair',
-        '5-year material warranty'
+        'Source diagnosis before any treatment is applied',
+        'Damp treatment from brick level starting from ₹120/sqft',
+        'Terrace, bathroom, external wall & water tank covered',
+        'Dr. Fixit & Fosroc certified systems used',
+        '28-day cure period before painting, always followed',
+        'Manufacturer-backed warranty on all waterproofing products applied'
       ]
     }
   ];
@@ -132,32 +131,54 @@ const Services = () => {
   const processSteps = [
     { num: '01', title: 'Site Inspection & Cleaning', desc: 'Detailed surface assessment followed by thorough dirt and grime removal.' },
     { num: '02', title: 'Surface Preparation', desc: 'Machine sanding and repair of cracks or holes to ensure a level foundation.' },
-    { num: '03', title: 'Masking & Protection', desc: 'Furniture, lights, and floors covered with heavy-duty drop cloths for zero-mess.' },
-    { num: '04', title: 'Waterproof Basecoat', desc: 'Application of moisture-resistant primers to prevent future damp issues.' },
-    { num: '05', title: 'Putty & Fine Sanding', desc: 'Premium wall putty applied for mirror-smooth finish, followed by meticulous sanding.' },
-    { num: '06', title: 'Primer Application', desc: 'Seal the surface with high-grade primers to ensure perfect paint adhesion.' },
-    { num: '07', title: '3-Coat Quality Finish', desc: 'Selection of top-brand paints applied in multiple coats for rich, even color.' },
-    { num: '08', title: 'Final Review & Handover', desc: 'Rigorous 10-point checklist inspection before thorough post-work cleaning.' }
+    { num: '03', title: 'Masking & Protection', desc: 'Furniture, lights and floor areas covered with heavy-duty drop cloths for zero mess.' },
+    { num: '04', title: 'Waterproof Basecoat', desc: 'Application of moisture-resistant primer to prevent future damp or seepage issues.' },
+    { num: '05', title: 'Putty & Fine Sanding', desc: 'Premium wall putty applied by roller, followed by meticulous machine sanding.' },
+    { num: '06', title: 'Primer Application', desc: 'Seal the surface with high-grade premium primer to ensure perfect paint adhesion.' },
+    { num: '07', title: '3-Coat Quality Finish', desc: 'Selection of top-brand paints applied in multiple coats for rich, even colour.' },
+    { num: '08', title: 'Final Review & Handover', desc: 'Rigorous 10-point checklist inspection followed by thorough post-work cleaning.' }
   ];
 
   const whyUsItems = [
-    { title: '15+ Years Expertise', desc: 'All painters are background-verified and trained professionals.', icon: '🏅' },
-    { title: 'Lowest Price Guarantee', desc: 'Transparent pricing with zero hidden charges. We beat any genuine quote.', icon: '💰' },
-    { title: 'Eco-Friendly & Dustless', desc: 'Low-VOC paints and dustless techniques for a healthier home environment.', icon: '🌿' },
-    { title: 'Free Consultation', desc: 'Our experts help you pick perfect color combinations with no commitment.', icon: '🎨' }
+    { title: 'Expert Painters', desc: "Every painter we send is background-verified and trained in-house, experienced in Kolkata's specific building types and climate challenges. No day-labour contractors. No subcontracting.", icon: '🏅' },
+    { title: 'Lowest Price Guarantee', desc: 'Transparent per-sqft pricing with a written quote before work begins. We match any comparable quote from a verified Kolkata painting contractor.', icon: '💰' },
+    { title: 'Eco-Friendly & Dustless', desc: 'Low-VOC paints and machine sanding on every job — less dust, less odour, safer for children and elderly family members in your home.', icon: '🌿' }
   ];
 
   const checklistItems = [
     'Proper masking of windows & fittings',
-    'Wall sanding using machine',
     'Damp treatment & waterproofing',
-    'Wall crack repair & filling',
     'First coat of primer',
-    '2-coat wall putty application',
     'Wall sanding after putty',
+    '2-coat top paint finish',
+    'Wall sanding using machine',
+    'Wall crack repair & filling',
+    '2-coat wall putty application',
     '2-coat exterior primer',
-    '3-coat top paint finish',
     'Masking removal & final cleanup'
+  ];
+
+  const faqItems = [
+    {
+      q: 'What home painting services do you offer in Kolkata?',
+      a: 'ColourSure offers interior painting, exterior painting, texture finishes and waterproofing across all areas of Kolkata. Every service includes a free site visit, written quote and a quality checklist. We handle residential flats, independent houses and housing societies.'
+    },
+    {
+      q: 'How do I know which painting service I need?',
+      a: 'Book a free site visit, our project manager assesses your walls, identifies any damp or structural issues and recommends the right service. We never upsell. If your wall only needs a repaint, that is all we will quote for.'
+    },
+    {
+      q: 'Do you handle both fresh painting and repainting?',
+      a: 'Yes. Fresh painting on newly plastered walls and full repaints of older homes both follow the same 8-step process, the preparation steps differ but the quality standard does not. We assess wall condition during the free visit and advise accordingly.'
+    },
+    {
+      q: 'What brands of paint do you use?',
+      a: 'We work with Asian Paints, Berger, Dulux, Nerolac, and other brands across all product grades. You choose the brand and grade that fits your budget, we advise on what works best for your specific wall condition and the Kolkata climate.'
+    },
+    {
+      q: 'Is the site visit really free?',
+      a: 'Yes, completely. Our project manager visits, assesses every surface, measures the area and gives you a written itemised quote within 24 hours. No token money, no commitment required to get the quote.'
+    }
   ];
 
   return (
@@ -182,15 +203,14 @@ const Services = () => {
                 Professional Painting Services
               </div>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-ink leading-[1.08] mb-6 -tracking-wider">
-                Painting<br/>
+                Painting Transformed<br/>
                 <span className="text-accent relative inline-block">
-                  Transformed
+                  for Kolkata
                   <span className="absolute bottom-2 left-0 right-0 h-2 bg-accent2/30 -z-10 rounded-full"></span>
                 </span>
-                <br className="hidden lg:block"/> for Kolkata
               </h1>
               <p className="text-muted text-base md:text-lg leading-relaxed max-w-lg mb-10 mx-auto lg:mx-0">
-                From luxury apartments to high-rise commercial towers — ColorSure delivers precision painting and weather protection that wows.
+                Whether it's a fresh coat on a newly built flat or a full repaint of an ageing building, ColourSure delivers precision home painting services across Kolkata. No subcontractors. No guesswork. Done right the first time.
               </p>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-14">
                 <button 
@@ -205,16 +225,16 @@ const Services = () => {
               </div>
               <div className="grid grid-cols-3 gap-6 md:gap-12 pt-10 border-t border-border/70 max-w-lg mx-auto lg:mx-0">
                 <div>
-                  <div className="font-display text-3xl font-black text-ink">1000+</div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted font-bold mt-1">Happy Clients</div>
-                </div>
-                <div>
-                  <div className="font-display text-3xl font-black text-ink">15 yrs</div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted font-bold mt-1">Experience</div>
-                </div>
-                <div>
                   <div className="font-display text-3xl font-black text-ink">100%</div>
-                  <div className="text-[10px] uppercase tracking-wider text-muted font-bold mt-1">Satisfaction</div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted font-bold mt-1">Job Completion</div>
+                </div>
+                <div>
+                  <div className="font-display text-3xl font-black text-ink">48hr</div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted font-bold mt-1">Written Quote</div>
+                </div>
+                <div>
+                  <div className="font-display text-3xl font-black text-ink">Zero</div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted font-bold mt-1">Subcontractors</div>
                 </div>
               </div>
             </div>
@@ -281,10 +301,10 @@ const Services = () => {
       <section className="py-24 px-8 md:px-16 lg:px-24 bg-white" id="main-services">
         <div className="max-w-[1440px] mx-auto">
           <div ref={addToRefs} className="opacity-0 translate-y-6 transition-all duration-700 text-center mb-16">
-            <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">Core Expertise</div>
-            <h2 className="font-display text-4xl md:text-5xl font-black text-ink mb-6">Mastery Across Every Surface</h2>
+            <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">WHAT WE DO</div>
+            <h2 className="font-display text-4xl md:text-5xl font-black text-ink mb-6">Every painting service, done right</h2>
             <p className="text-muted max-w-2xl mx-auto leading-loose">
-              We bring specialized skills, certified materials and a meticulous eye for detail to every project we undertake.
+              From a single bedroom to a full housing society — we bring certified painters, premium materials and a 10-point quality checklist to every project. Serving Kolkata, Howrah, Salt Lake, Ballygunge, Behala, New Town, Tollygunge, and other areas.
             </p>
           </div>
 
@@ -415,7 +435,7 @@ const Services = () => {
               <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
               <h3 className="font-display text-3xl font-black mb-6 leading-tight">100% Satisfaction or we fix it free.</h3>
               <p className="text-white/50 leading-relaxed mb-10">
-                We stand behind every project. If you're not happy with the finish, we'll make it right. No arguments, no extra charge.
+                Not happy with the finish? We come back and redo it, no charge, no argument. Every job backed by a written service warranty.
               </p>
               <div className="bg-white/5 border border-white/10 p-8 rounded-3xl italic relative">
                 <span className="absolute -top-6 -left-2 text-6xl text-accent font-serif opacity-40">"</span>
@@ -459,27 +479,62 @@ const Services = () => {
       <section className="py-24 px-8 md:px-16 lg:px-24 bg-white" id="brands">
         <div className="max-w-[1440px] mx-auto">
           <div ref={addToRefs} className="opacity-0 translate-y-6 transition-all duration-700 text-center mb-16">
-            <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">Premium Materials</div>
+            <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">PREMIUM MATERIALS ONLY</div>
             <h2 className="font-display text-4xl md:text-5xl font-black text-ink mb-6">The Brands Kolkata Trusts</h2>
+            <p className="text-muted max-w-xl mx-auto">We use paints only from India's leading manufacturers. You choose the brand and grade; we advise, you decide.</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="flex flex-col items-center justify-center p-8 bg-warm/10 border-2 border-dashed border-border rounded-3xl group hover:border-accent transition-all">
               <span className="font-display text-xl md:text-2xl font-black text-ink group-hover:text-accent transition-all">Asian Paints</span>
-              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Royale • Apex</span>
+              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Royale · Apcolite · Apex · Tractor</span>
             </div>
             <div className="flex flex-col items-center justify-center p-8 bg-warm/10 border-2 border-dashed border-border rounded-3xl group hover:border-accent transition-all">
               <span className="font-display text-xl md:text-2xl font-black text-ink group-hover:text-accent transition-all">Berger</span>
-              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Silk • Weathercoat</span>
+              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Silk · WeatherCoat · Bison · Rangoli</span>
             </div>
             <div className="flex flex-col items-center justify-center p-8 bg-warm/10 border-2 border-dashed border-border rounded-3xl group hover:border-accent transition-all">
               <span className="font-display text-xl md:text-2xl font-black text-ink group-hover:text-accent transition-all">Dulux</span>
-              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Velvet • Weathershield</span>
+              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Velvet Touch · Weathershield · Pentalite</span>
             </div>
             <div className="flex flex-col items-center justify-center p-8 bg-warm/10 border-2 border-dashed border-border rounded-3xl group hover:border-accent transition-all">
               <span className="font-display text-xl md:text-2xl font-black text-ink group-hover:text-accent transition-all">Nerolac</span>
-              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Excel • Impressions</span>
+              <span className="text-[10px] text-muted font-bold uppercase tracking-widest mt-2">Excel · Impressions · Beauty Gold</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ───── FAQ SECTION (NEW) ───── */}
+      <section className="py-24 px-8 md:px-16 lg:px-24 bg-cream/30" id="faq">
+        <div className="max-w-4xl mx-auto">
+          <div ref={addToRefs} className="opacity-0 translate-y-6 transition-all duration-700 text-center mb-16">
+            <div className="text-accent text-[11px] font-bold tracking-[4px] uppercase mb-4">FREQUENTLY ASKED QUESTIONS</div>
+            <h2 className="font-display text-4xl md:text-5xl font-black text-ink mb-6">Common questions about our painting services</h2>
+          </div>
+
+          <div className="space-y-4">
+            {faqItems.map((item, idx) => (
+              <div 
+                key={idx} 
+                ref={addToRefs}
+                style={{ transitionDelay: `${idx * 50}ms` }}
+                className="opacity-0 translate-y-6 transition-all duration-700 bg-white border border-border rounded-2xl overflow-hidden"
+              >
+                <button 
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full px-8 py-6 flex items-center justify-between text-left group"
+                >
+                  <span className="font-display text-lg font-bold text-ink group-hover:text-accent transition-colors">{item.q}</span>
+                  <span className={`text-2xl transition-transform duration-300 ${openFaq === idx ? 'rotate-180 text-accent' : 'text-muted'}`}>
+                    {openFaq === idx ? '−' : '+'}
+                  </span>
+                </button>
+                <div className={`px-8 transition-all duration-300 ease-in-out ${openFaq === idx ? 'pb-8 max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <p className="text-muted leading-relaxed text-sm">{item.a}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
